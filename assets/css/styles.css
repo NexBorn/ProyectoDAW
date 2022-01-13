@@ -1,0 +1,645 @@
+:root {
+    --green: #8FCB9B;
+    --white: #EAE6E5;
+    --black: #12130F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EAE6E5;
+}
+
+.big-header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(13, 39, 56, 0.7), rgba(4, 9, 30, 1)), url(../img/header_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > a > img {
+    max-height: 15vh;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links ul li a:after {
+    content: "";
+    position: absolute;
+    background-color: green;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 2px;
+    transition: 0.5s;
+}
+
+.nav-links ul li a:hover:after {
+    width: 100%;
+}
+
+.main-text {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 64px;
+}
+
+.green-hashtag {
+    color: #8FCB9B;
+    text-decoration: none;
+}
+
+.lugares h2 {
+    position: relative;
+    color: black;
+    margin: 40px;
+}
+
+.lugares div h3 {
+    margin-top: 40px;
+    margin-left: 30px;
+    font-size: 24px;
+}
+
+.lugar-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+
+.lugar-info img {
+    padding: 10px 20px;
+    width: 600px;
+    min-width: 200px;
+    height: auto;
+    margin: auto;
+    flex-grow: 2;
+}
+
+footer {
+    min-height: 250px;
+    margin-top: 50px;
+    background-image: linear-gradient(rgba(13, 39, 56, 0.7), rgba(4, 9, 30, 1)), url(../img/footer_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.social-networks {
+    padding-top: 20px;
+    padding-left: 30px;
+    min-width: 156px;
+    width: 250px;
+}
+
+.social-networks div {
+    justify-content: center;
+    padding: 10px;
+}
+
+.social-networks img {
+    width: 45px;
+}
+
+.social-networks span {
+    color: white;
+    position: relative;
+    top: -15px;
+}
+
+
+/*BIOSEGURIDAD JAMES CANTOS*/
+.Header{
+    padding: 10px;
+    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)), url(../img/header_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.High-Center{
+    float: left;
+    margin-top: 5px;
+    min-height: 500px;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.High-Center p{
+    padding-top: 20px;
+}
+.High-Center h1{
+    font-size: 50px;
+    color: #000;
+}
+.video{
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Center{
+    margin: 5px;
+    min-height: 500px;
+    padding: 10px;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.Center h2{
+    text-align: center;   
+}
+.protocolo{
+    box-sizing: border-box;
+    width: 50%;
+    border: 1px solid #12130F;;
+    float: left;
+    padding: 1em;
+    position: relative;
+}
+.Center p{
+    padding-top: 20px;
+}
+
+.Center img{   
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+.Left{
+    float: left;
+    margin-left: 20px;
+    min-height: 400px;
+    padding: 10px;
+    width: 50%;
+    box-shadow: inset -5px -5px 10px 0 #12130F;
+}
+.Left img{
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+.Right{
+    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)),url(../img/mundo_opt.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    float: left;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    min-height: 500px;
+    padding: 10px;
+    width: 35%;      
+}
+.Right h3{
+text-align: center;
+color: #EAE6E5;
+}
+.Right p{
+color: #EAE6E5;
+
+padding-top: 50px;
+text-align: center;
+
+}
+.Footer-James{
+    clear: both;
+    min-height: 20px;
+    margin-top: 50px;
+    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)), url(../img/footer_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+/*FORMULARIO James*/
+.big-header-formulario{
+    min-height: 30vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(13, 39, 56, 0.7), rgba(4, 9, 30, 1)), url(../img/header_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.container-form{
+    width: 450px;
+    background-color: #3e5c7a;
+    padding: 30px;
+    margin: auto;
+    margin-top: 75px;
+    border-radius: 4px;
+}
+#id{
+    font-size: 25px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+a:hover{
+    color: #8FCB9B;
+}
+
+.forms{
+    width: 100%;
+    background: #8FCB9B;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-size: 18px;
+    box-shadow: 7px 13px 37px #000;
+}
+.container-form .boton{
+    width: 100%;
+    border: none;
+    padding: 12px;
+    color: #12130F;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+/*Nefi reyes toala*/
+
+
+#title-section{
+    padding: 5%;
+}
+
+#head-title{
+    color: #8FCB9B;
+    font-family: "Lato", sans-serif;
+    font-size: 50px;
+    font-weight: normal;
+    text-transform: none;
+    font-style: normal;
+    text-align: center;
+}
+
+.elementor-section{
+    overflow: hidden;
+    transition-property: background, border, border-radius, box-shadow;
+    transition-duration: 0.3s, 0.3s, 0.3s, 0.3s;
+    transition-timing-function: ease, ease, ease, ease;
+    transition-delay: 0s, 0s, 0s, 0s;
+    padding: 0% 0% 2%;
+}
+
+.elementor-container{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+}
+
+.elementos-row{
+    width: 100%;
+    margin: fill;
+    display: flex;
+    overflow: hidden;
+}
+
+.elementor-column{
+    width: 200px;
+    padding:10px;
+}
+
+
+.elementor-container{
+    display: flex;
+    position: relative;
+}
+
+.elemento {
+    width: 100%;
+    display: flex;
+    background-color: #EAE6E5;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+
+.imagen-elementos{
+    margin:10px auto;
+    border-radius:5px;
+    border: 1px solid #999;
+    padding:13px;
+    width:220px;
+    height:220px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.h2-title-element{
+
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+.elemento-description{
+    font-family: "Alata", sans-serif;
+    letter-spacing: 0px;
+
+}
+.elemto-desc{
+    text-align: center;
+}
+
+
+.h2-title-element, .elemento-description{
+    color: #55595c;
+    border-color: #55595c;
+    fill: #55595c;
+    margin-bottom: 15px;
+    position: relative;
+    text-align: center;
+}
+
+
+.buttom-ref{
+    background-color: #8FCB9B;
+    border-width:0px;
+    border-radius: 30px;
+    font-size: 13px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+a{
+    color: white;
+    text-decoration: blink;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-submit{
+    width: 100%;
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--green);
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+}
+
+.form-group{
+    margin-bottom: 1rem;
+}
+
+.label-form{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+#inscripciones-ref{
+    background-color: #8FCB9B;
+    border-width:10px;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#title-section{
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2.5rem;
+    color: var(--green);
+    text-align: center;
+}
+
+#inscripciones{
+    border-top: 2px solid #8FCB9B;
+    background-color: #fff;
+    max-width: 500px;
+    margin: auto;
+    padding: 40px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
+}
+
+
+
+<!--Beltran Santistevan Steven-- >
+.cabecera {
+    padding-top: 25px;
+}
+
+.cabecera a {
+    padding-left: 2%;
+    color: white;
+    font-weight: 700;
+}
+
+.big-header-explora {
+    min-height: 30vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(13, 39, 56, 0.7), rgba(4, 9, 30, 1)), url(../img/header_quito1.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.parrafoIntro {
+    text-align: center;
+
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    letter-spacing: 0.03px;
+    line-height: 1.6;
+}
+
+.litle {
+    text-align: center;
+    font-size: 40px;
+    color: #6a6a6a;
+    margin-top: 100px;
+    font-weight: 100;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+.cajas{
+    background-color: rgb(47, 161, 255);
+    border: 2px solid rgb(0, 0, 0);
+    width: 350px;
+    height: auto;
+    padding: 10px;
+    margin: 10px 28px;
+    display: inline-block;
+    text-align: center;
+   
+    }
+
+.parrafoFinal {
+    margin: 20px;
+    
+}
+
+.container .card {
+    width: 350px;
+    height: 410px;
+    border-radius: 8px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+h2 {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 24px;
+
+}
+
+.container .card img {
+    width: 330px;
+    height: 220px;
+}
+
+.container .card h4 {
+    font-weight: 600;
+}
+
+.container .card p {
+    padding: 0 1rem;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.container .card a {
+
+    font-weight: 400;
+    text-decoration: none;
+    color: #3498db;
+}
+.encabezadoform{
+text-align: center;
+color: black;
+}
+.encabezadoform .h2{
+    text-align: center;
+}
+.form-body{
+    width: 500px;
+    height: auto;
+    background-color:bisque;
+    padding: 30px;
+    margin: auto;
+    margin-top: 75px;
+    border-radius: 4px;
+}
+.form-body .section1{
+    width: 100%;
+    background: rgb(143, 203, 180);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #0a296b;
+    font-size: 18px;
+    box-shadow: 7px 13px 37px #000;
+}
+.form-button{
+    width: 100%;
+    border: none;
+    padding: 12px;
+    color: #12130F;
+    margin: 16px 0;
+    font-size: 16px;
+}
