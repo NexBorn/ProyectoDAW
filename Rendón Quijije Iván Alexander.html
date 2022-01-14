@@ -27,14 +27,43 @@
             margin: 20px 30px 0 30px;
             min-width: 200px;
         }
-        
-        .contenedor-lugares div{
-            width: auto
-        }
 
         .contenedor-lugares img{
             width: 80%;
             margin: auto;
+        }
+
+        .contenedor-imagen{
+            text-align: center;
+        }
+
+        .timer-bar{
+            position: relative;
+            width: 80%;
+            top: -1rem;
+            left: 10%;
+            overflow: hidden;
+        }
+
+        .timer-bar::after{
+            content: "";
+            position: relative;
+            display: inline-block;
+            top: -0.5rem;
+            width: 100%;
+            height: 100%;
+            border-bottom: 0.5rem solid #2bb673;
+            animation: timerAnim 5s linear infinite;
+        }	
+
+        @keyframes timerAnim {
+            0%{
+                transform: translate(-100%, 0) ;
+            }
+
+            100%{
+                transform: translate(0, 0) ;
+            }
         }
 
         footer{
@@ -134,13 +163,16 @@
                             
                     </div>
                 </div>
-                <img src="assets/img/iglesia_san_francisco.jpg" alt="teleférico">
+                <div class="contenedor-imagen">
+                    <img src="assets/img/iglesia_san_francisco.jpg" alt="teleférico" class="timer">
+                    <div class= "timer-bar"></div>
+                </div>
 
             </div>
         </section>
 
         <section class="mas-info">
-            <a href="ConocerMas.html"><button class="btn-mas-info">Mas información</button></a>
+            <a href="FormularioRendónIván.html"><button class="btn-mas-info">Mas información</button></a>
         </section>
     </main>
     <footer>
