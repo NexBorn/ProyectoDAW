@@ -1,89 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <title>Formulario Registro</title>
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    </head>
-    <body>
-        <header class="big-header-formulario">
-            <nav>
-                <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
-                <div class="nav-links">
-                    <ul>
-                        <li><a href="Rendón Quijije Iván Alexander.html">Inicio</a></li>
-                        <li><a href="Cantos Pinto James Douglas.html">Bioseguridad</a></li>
-                        <li><a href="Beltrán Santistevan Carlos Steven.html">Explora</a></li>
-                        <li><a href="Reyes Toala Nefi Javier.html">Conoce</a></li>
-                        <li><a href="Gonzalez_Espinoza_Christian_Eduardo.html">Precios</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <div class="container-form">
-                <form>
-                    <h1 id="id">Encuesta protocolo covid</h1>
-                    <div class="forms">
-                        <label>Nombre:</label>
-                        <input type="text" name="nombres" placeholder="Ingrese nombres completos" required>
-                    </div>
-                    <div class="forms">
-                        <label>Email:</label>
-                        <input type="email" name="correo" placeholder="Ingrese correo electronico" required>
-                    </div>
-                    <div class="forms">
-                        <label>¿Esta vacunado?</label>
-                        <label>si
-                            <input type="radio" name="vacuna" value="si" checked>
-                        </label> 
-                        <label>no
-                            <input type="radio" name="vacuna" value="no" >
-                        </label>
-                    </div>
-                    <div class="forms">
-                        <label>Tipo de vacuna:</label>
-                        <select name="vacunas">
-                            <option value="Sinovac">Sinovac</option>
-                            <option value="Pfizer">Pfizer</option>
-                            <option value="Astrazeneca">Astrazeneca</option>
-                        </select>
-                    </div>
-                    <div class="forms">
-                        <label>¿Cuantas mascarillas lleva para el viaje?</label>
-                        <input type="number" min="1" max="5" >
-                    </div>
-                    <div class="forms">
-                        <label>¿Qué tan frecuente es su lavado de manos?</label>
-                        <input type="range" step="5" min="0" max="50" >
-                    </div>
-                        <button class="boton">Enviar</button>
-                        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-                </form>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Formulario Registro</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="big-header-formulario">
+        <nav>
+            <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="Rendón Quijije Iván Alexander.html">Inicio</a></li>
+                    <li><a href="Cantos Pinto James Douglas.html">Bioseguridad</a></li>
+                    <li><a href="Beltrán Santistevan Carlos Steven.html">Explora</a></li>
+                    <li><a href="Reyes Toala Nefi Javier.html">Conoce</a></li>
+                    <li><a href="Gonzalez_Espinoza_Christian_Eduardo.html">Precios</a></li>
+                </ul>
             </div>
-           <div>
-                <footer>
-                    <img class="logo" src="assets/img/logo.png" alt="logo">
-                    <div class="social-networks">
-                        <div>
-                            <img src="assets/img/facebook.png" alt="facebook">
-                            <span>Facebook</span>
-                        </div>
-                        <div>
-                            <img src="assets/img/instagram.png" alt="instagram">
-                            <span>Instagram</span>
-                        </div>
-                        <div>
-                            <img src="assets/img/twitter.png" alt="twitter">
-                            <span>Twitter</span>
-                        </div>   
+        </nav>
+    </header>
+    <main>
+        <div class="container-form">
+            <form>
+                <h1 id="id">Encuesta protocolo covid</h1>
+                <div class="forms">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombres" placeholder="Ingrese nombres completos" required>
+                </div>
+                <div class="forms">
+                    <label>Email:</label>
+                    <input type="email" name="correo" placeholder="Ingrese correo electronico" required>
+                </div>
+                <div class="forms">
+                    <label>¿Esta vacunado?</label>
+                    <label>si
+                        <input type="radio" name="vacuna" value="si" checked>
+                    </label>
+                    <label>no
+                        <input type="radio" name="vacuna" value="no">
+                    </label>
+                </div>
+                <div class="forms">
+                    <label>Tipo de vacuna:</label>
+                    <select name="vacunas">
+                        <option value="Sinovac">Sinovac</option>
+                        <option value="Pfizer">Pfizer</option>
+                        <option value="Astrazeneca">Astrazeneca</option>
+                    </select>
+                </div>
+                <div class="forms">
+                    <label>¿Cuantas mascarillas lleva para el viaje?</label>
+                    <input type="number" min="1" max="5">
+                </div>
+                <div class="forms">
+                    <label>¿Qué tan frecuente es su lavado de manos?</label>
+                    <input type="range" step="5" min="0" max="50">
+                </div>
+                <button class="boton">Enviar</button>
+                <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+            </form>
+        </div>
+        <div>
+            <footer>
+                <img class="logo" src="assets/img/logo.png" alt="logo">
+                <div class="social-networks">
+                    <div>
+                        <img src="assets/img/facebook.png" alt="facebook">
+                        <span>Facebook</span>
                     </div>
-                    <div class="info-footer">              
-                    </div> 
-                </footer>  
-            </div> 
-        </main>
-    </body>
+                    <div>
+                        <img src="assets/img/instagram.png" alt="instagram">
+                        <span>Instagram</span>
+                    </div>
+                    <div>
+                        <img src="assets/img/twitter.png" alt="twitter">
+                        <span>Twitter</span>
+                    </div>
+                </div>
+                <div class="info-footer">
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+
 </html>
