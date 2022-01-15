@@ -188,83 +188,123 @@ footer {
 }
 
 .Center{
-    margin: 5px;
-    min-height: 500px;
     padding: 10px;
     float: left;
     width: 100%;
-    position: relative;
+    position: relative;  
 }
 .Center h2{
     text-align: center;   
+    padding-bottom: 15px;
 }
 .protocolo{
-    box-sizing: border-box;
-    width: 50%;
-    border: 1px solid #12130F;;
+    height: auto;
+    max-width: 500px;
+    margin-left:75px;
+    margin-right: 50px;
+    border-bottom: 2px groove #8FCB9B ;
     float: left;
     padding: 1em;
     position: relative;
+   
 }
 .Center p{
     padding-top: 20px;
+    text-align: justify;
 }
 
-.Center img{   
-    width: 100%;
-    height: 500px;
-    display: block;
+.protocolo img:hover{   
+    transform: scale(1.1);
+    cursor: pointer;
 }
 .Left{
     float: left;
     margin-left: 20px;
-    min-height: 400px;
+    margin-bottom: 10px;
     padding: 10px;
-    width: 50%;
-    box-shadow: inset -5px -5px 10px 0 #12130F;
+    width: 800px;
+    max-width: 90%;
+    overflow: hidden;
 }
-.Left img{
+
+.slider_contenedor{
     width: 100%;
-    height: 500px;
-    display: block;
+    display: flex;
 }
+
+.contenido_slider{
+ 
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+.contenido_slider:nth-child(1){
+    background-color: #8FCB9B;
+    
+ }
+.contenido_slider:nth-child(2){
+   background-color: #332863;
+  
+}
+
+.contenido_slider:nth-child(3){
+    background-color: #611a68;
+ 
+}
+ .contenido_slider:nth-child(4){
+    background-color: #8FCB9B;
+
+}
+
+.contenido_slider > img{
+    width: 50%;
+    height: 300px;
+}
+.contenido_slider > div{
+    font-size: 30px;
+    min-width: 200px;
+    
+}
+.contenido_slider > h3{
+    text-align: center;
+}
+
+
 .Right{
     background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)),url(../img/mundo_opt.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
     float: left;
-    margin-left: 30px;
-    margin-bottom: 50px;
-    min-height: 500px;
-    padding: 10px;
-    width: 35%;      
+    margin: 25px;
+    width: 470px;  
+    min-height: 10px;  
 }
 .Right h3{
-text-align: center;
-color: #EAE6E5;
+    text-align: center;
+    color: #EAE6E5;
 }
 .Right p{
-color: #EAE6E5;
-
-padding-top: 50px;
-text-align: center;
-
-}
-.Footer-James{
-    clear: both;
-    min-height: 20px;
-    margin-top: 50px;
-    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)), url(../img/footer_quito.jpg);
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    gap: 30px;
+    color: #EAE6E5;
+    padding-top: 50px;
+    text-align: center;
 }
 
-/*FORMULARIO James*/
+#link{
+    margin-top: 20px;   
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 3px;
+    text-decoration: none;
+    
+}
+
+
+/*                  FORMULARIO JAMES                   */
 .big-header-formulario{
     min-height: 30vh;
     width: 100%;
@@ -274,7 +314,7 @@ text-align: center;
     position: relative;
 }
 .container-form{
-    width: 450px;
+    width: 75%;
     background-color: #3e5c7a;
     padding: 30px;
     margin: auto;
@@ -283,15 +323,52 @@ text-align: center;
 }
 #id{
     font-size: 25px;
-    margin-top: 20px;
+    margin-bottom: 10px;
     text-align: center;
+    color:  #8FCB9B;
+}
+
+.form_label{
+    display: block;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-weight: 700px;
+}
+.form_group_inputs {
+	position: relative;
+}
+.form_input {
+	width: 50%;
+	background: #fff;
+	border: 2px solid transparent;
+	border-radius: 2px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+.form_input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+.form_input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+    margin-left: 10px;
+    display: none;
+}
+.form_input-error-activo {
+	display: block;
 }
 
 a:hover{
     color: #8FCB9B;
 }
 
-.forms{
+
+.forms_field{
     width: 100%;
     background: #8FCB9B;
     padding: 10px;
@@ -301,14 +378,86 @@ a:hover{
     font-size: 18px;
     box-shadow: 7px 13px 37px #000;
 }
-.container-form .boton{
-    width: 100%;
-    border: none;
-    padding: 12px;
-    color: #12130F;
-    margin: 16px 0;
-    font-size: 16px;
+
+.form_validation {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
 }
+
+.form_msj {
+	height: 45px;
+	line-height: 45px;
+	background: #bd2b2b;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.form_msj-activo {
+	display: block;
+}
+
+.form_msj p {
+	margin: 0;
+}
+.forms_fields-button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.button {
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: #8FCB9B;
+	color: #12130F ;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+.button {
+	box-shadow: 1px 0px 10px rgba(163,163,163, 1);
+}
+.form_msj-exito {
+	font-size: 14px;
+	color: #8FCB9B;
+	display: none;
+}
+
+.form_msj-exito-activo {
+	display: block;
+}
+
+.form_group_inputs{
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.forms_field-correcto .form_validation {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.forms_field-incorrecto .form_label {
+	color: #bb2929;
+}
+
+.forms_field-incorrecto .form_validation {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.forms_field-incorrecto .form_input {
+	border: 3px solid #bb2929;
+}
+
+
 
 /*Nefi reyes toala*/
 
