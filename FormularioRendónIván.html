@@ -12,56 +12,28 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
         }
-
-
-        .lugar-info {
-            display: block;
-        }
-
-        .contenedor-lugares {
-            display: grid;
-            row-gap: 20px;
-            grid-template-columns: 1fr;
-        }
-
-        .lugar-info p {
-            margin: 20px 30px 0 30px;
-            min-width: 200px;
-        }
-
-        .contenedor-lugares div {
-            width: auto
-        }
-
-        .contenedor-lugares img{
-            width: 60%;
-            margin: auto;
+        
+        .big-header{
+            height: 20vh;
+            min-height: 20vh;
         }
 
         footer {
             display: grid;
         }
 
-        .mas-info {
-            margin-top: 20px;
+
+        /* Formulario */
+        textarea{
+            resize: none;
+            min-height: 15rem;
         }
 
-        .formulario {
-            width: 80%;
-            align-items: center;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 30px;
+        .semi-transparent{
+            color: rgba(155, 151, 151, 0.904);
         }
 
-        .formulario input {
-            width: 250px;
-        }
-
-        #boton-enviar {
-            width: 100px;
-        }
+        
     </style>
 </head>
 
@@ -80,41 +52,60 @@
             </div>
         </nav>
     </header>
-    <div class="main-text">
-        <h1>Visita <a href="https://twitter.com/hashtag/Quito?src=hashtag_click" target="none"
-                class="green-hashtag">#Quito</a></span></h1>
-    </div>
+    
     <main>
         <section class="mas-info">
             <h2>Obtener mayor información</h2>
-            <div class="formulario">
-                <div>
-                    <h3>Nombres</h3>
-                    <input type="text">
-                </div>
-                <div>
-                    <h3>Apellidos</h3>
-                    <input type="text">
-                </div>
-                <div>
-                    <h3>Telefono</h3>
-                    <input type="tel">
-                </div>
-                <div>
-                    <h3>Correo</h3>
-                    <input type="email">
-                </div>
-                <div>
-                    <h3>Asunto</h3>
-                    <input type="email">
-                </div>
-                <div>
-                    <h3>Mensaje</h3>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                <div>
-                    <input type="submit" value="Enviar" id="boton-enviar">
-                </div>
+            <div class="container-forms">
+                <form class="mas-informacion">
+                    <div class="form-group">
+                            <span class="label-form">
+                                Nombre*
+                            </span> <br>
+                        <input class="form-control" type="text" name="nombre" id="nombre-label">
+                    </div>
+        
+                    <div class="form-group">
+                            <span class="label-form">
+                                Apellidos*
+                            </span><br>
+                        <input class="form-control" type="text" name="apellido" id="apellido-label">
+                    </div>
+
+                    <div class="form-group">
+                        <span class="label-form">
+                            Celular <span class="semi-transparent">(No obligatorio)</span> 
+                        </span> <br>
+                    <input class="form-control" type="text" name="nombre" id="nombre-label">
+                    </div>
+
+                    <div class="form-group">
+                        <span class="label-form">
+                            Asunto*
+                        </span> <br>
+                    <input class="form-control" type="text" name="nombre" id="nombre-label">
+                    </div>
+
+                    <div class="form-group">
+                        <span class="label-form">
+                            Correo*
+                        </span><br>
+                        <input class="form-control" type="email" name="correo" id="apellido-label">
+                    </div>
+
+                    <div class="form-group">
+                        <span class="label-form">
+                            Mensaje*
+                        </span><br>
+                    <textarea class="form-control" name="mensaje" id="mensaje" cols="60" rows="10"></textarea>
+                    </div>
+    
+                    <div class="form-group">
+        
+                        <input class="btn-submit" type="submit" name="submit" id="submit">
+                    </div>
+        
+                </form>
             </div>
         </section>
     </main>
@@ -139,6 +130,7 @@
 
         </div>
     </footer>
+    <script src="assets/js/frmRendon.js"></script>
 </body>
 
 </html>
