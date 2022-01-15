@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Rendón%20Quijije%20Iván%20Alexander.html" title="Inicio"  description="">
+    <siteMapNode url="Cantos%20Pinto%20James%20Douglas.html" title="Bioseguridad"  description="" />
+    <siteMapNode url="Beltrán%20Santistevan%20Carlos%20Steven.html" title="Explora"  description="">
+      <siteMapNode url="Formulario%20Beltran%20Carlos.html" title="Reserva tu habitacion ed hotel"  description="" />
+    </siteMapNode>
+    <siteMapNode url="Reyes%20Toala%20Nefi%20Javier.html" title="Conoce"  description="">
+      <siteMapNode url="FormularioReyesToalaNefi.html" title="inscribete aqui"  description="" />
+    </siteMapNode>
+    <siteMapNode url="Gonzalez_Espinoza_Christian_Eduardo.html" title="Precios"  description="">
+      <siteMapNode url="Gonzalez_Espinoza_Christian_Eduardo_Form.html" title="Premio"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
