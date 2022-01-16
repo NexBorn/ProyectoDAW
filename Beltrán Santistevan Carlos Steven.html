@@ -7,13 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Viajes, Explora,  html" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
     .container .card:hover{
 	transform: translateY(-15px);
-	box-shadow: 0 12px 16px rbga(0,0,0,0.2);
+	box-shadow: 0 12px 16px; 
     }
     .btn-reservar {
     display: block;
@@ -21,7 +20,6 @@
     font-size: 16px;
     font-weight: 600;
     color: black;
-    font: aqua;
     cursor: pointer;
     margin: 80px auto;
     height: 55px;
@@ -64,10 +62,10 @@
             <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
             <div class="nav-links">
                 <ul>
-                    <li><a href="Rendón Quijije Iván Alexander.html">Inicio</a></li>
-                    <li><a href="Cantos Pinto James Douglas.html">Bioseguridad</a></li>
-                    <li><a href="Beltrán Santistevan Carlos Steven.html">Explora</a></li>
-                    <li><a href="Reyes Toala Nefi Javier.html">Conoce</a></li>
+                    <li><a href="Rendón%20Quijije%20Iván%20Alexander.html">Inicio</a></li>
+                    <li><a href="Cantos%20Pinto%20James%20Douglas.html">Bioseguridad</a></li>
+                    <li><a href="Beltrán%20Santistevan%20Carlos%20Steven.html">Explora</a></li>
+                    <li><a href="Reyes%20Toala%20Nefi%20Javier.html">Conoce</a></li>
                     <li><a href="Gonzalez_Espinoza_Christian_Eduardo.html">Precios</a></li>
                 </ul>
             </div>
@@ -206,25 +204,24 @@
                 <h4 class="parrafoFinal ">Guias descargables</h4>
                 <span class="cajas"> Guia 1:
                     <a download="Guia1" href="assets/download/guia1.pdf">Descargar guia</a>
-                    <p>Esta guia cuenta con todos los detalles para viajar por Quito y disfrutar su turismo.</p>
+                    Esta guia cuenta con todos los detalles para viajar por Quito y disfrutar su turismo.
                 </span>
                 <span class="cajas"> Guia 2:
                     <a download="Guia2" href="assets/download/guia2.pdf">Descargar guia</a>
-                    <p>Esta guia contiene descripciones y historias de lugares muy populares de Quito.</p>
+                    Esta guia contiene descripciones y historias de lugares muy populares de Quito.
                 </span>
                 <span class="cajas"> Guia 3:
                     <a download="Guia3" href="assets/download/guia1.pdf">Descargar guia</a>
-                    <p>Esta guia contiene informacion de los lugares mas visitados y recomendados en Quito.</p>
+                    Esta guia tiene informacion de lugares mas visitados y recomendados de Quito.
                 </span>
 
             </section>
             <section>
                 <h4 class="parrafoFinal ">Formulario - reservacion de hotel</h4>
-                <a href="Formulario Beltran Carlos.html"><button class="btn-reservar">Reserva tu habitacion de
-                        hotel</button></a>
+                <a class="btn-reservar" href="Formulario%20Beltran%20Carlos.html">Reserva tu habitacion de hotel</a>
             </section>
             <section class="imagenturismo">
-                <script type="text/javascript">
+                <script>
                     function galeria(imagen) {
                         const listImagenes= document.querySelectorAll(".imagenes");
                         document.ampliar.src = imagen.src;
@@ -236,12 +233,12 @@
                 </script>
 
                 <h3 class="tituloPrincipal" >"Paisajes turisticos de Quito"</h3>
-                <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="400px" height="400px" name="ampliar" />
+                <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="400" height="400" name="ampliar" id="ampliar" />
                 <div>
-                    <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
-                    <img class="imagenes" src="assets/img/turism2.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
-                    <img class="imagenes" src="assets/img/turism3.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
-                    <img class="imagenes" src="assets/img/turism4.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="100" height="60" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism2.jpg" alt="" width="100" height="60" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism3.jpg" alt="" width="100" height="60" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism4.jpg" alt="" width="100" height="60" onclick="galeria(this);" />
                 </div>
             </section>
             <p class="parrafoFinal ">Por Beltran Santistevan Carlos Steven</p>
