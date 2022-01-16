@@ -2,14 +2,59 @@
 <!-- Explora -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Viajes, Explora,  html" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+    .container .card:hover{
+	transform: translateY(-15px);
+	box-shadow: 0 12px 16px rbga(0,0,0,0.2);
+    }
+    .btn-reservar {
+    display: block;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    font: aqua;
+    cursor: pointer;
+    margin: 80px auto;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,
+        #0ba360,
+        #3cba92,
+        #30dd8a,
+        #2bb673)
+    }
+    .imagenturismo{
+    text-align: center;
+    }
+    .tituloPrincipal {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 35px;
+    text-align: center;
+    }
+    .imagenes div {
+    display: inline-block;
+    padding: 5px;
+    }
+    .activa{
+    border: 2px solid blue;
+    width: 66px;
+    height: 66px;
+    }
+    </style>
     <title>Explora | Turismo Quito</title>
 </head>
 
@@ -115,14 +160,14 @@
                         <img src="assets/img/turismo_romance.png" alt="romance">
                         <h4>Turismo de romance</h4>
                         <p>Nada mejor que disfrutar en pareja y conoce juntoa es esa persona especial.</p>
-                        <a href="https://visitquito.ec/explora-turismo-de-romance/">Leer más</a>
+                        <a href="https://visitquito.ec/explora-turismo-de-romance/">Explora y accede</a>
                     </div>
 
                     <div class="card">
                         <img src="assets/img/turismo_aventura.png" alt="aventura">
                         <h4>Turismo de aventura</h4>
                         <p>Aventurate a conocer lugares sensacionales que te haran divertir.</p>
-                        <a href="https://visitquito.ec/explora-turismo-de-aventura-2/">Leer más</a>
+                        <a href="https://visitquito.ec/explora-turismo-de-aventura-2/">Explora y accede</a>
                     </div>
                 </div>
             </section>
@@ -134,9 +179,7 @@
                         <a><img src="assets/img/gastronomia.png" alt="gastronomia"></a>
                         <h4>Gastronomia</h4>
                         <p>Ecuador no deja de sorprender a quienes descubren por primera vez las deliciosas comidas, y
-                            Quito
-                            es perfecto para
-                            descubrir los sabores de distintos platos típicos del país.</p>
+                            Quito es perfecto para descubrir los sabores de distintos platos típicos del país.</p>
                         <a href="https://visitquito.ec/descubre/10-razones-para-visitar-quito/">Leer más</a>
                     </div>
 
@@ -144,9 +187,7 @@
                         <img src="assets/img/moderno.png" alt="moderno">
                         <h4>Quito moderno</h4>
                         <p>El Quito moderno fue creado para diferir de la construcción colonial que dominó la ciudad por
-                            más
-                            de 300 años.se mantiene
-                            fresco y creativo, renovándose y actualizándose a cada paso.</p>
+                            más de 300 años.se mantiene fresco y creativo, renovándose y actualizándose a cada paso.</p>
                         <a href="https://visitquito.ec/descubre/10-razones-para-visitar-quito/">Leer más</a>
                     </div>
 
@@ -154,9 +195,7 @@
                         <img src="assets/img/andes.png" alt="andes">
                         <h4>Andes</h4>
                         <p>Ecuador es un parque de aventuras, uno de los países ideales para realizar deportes extremos
-                            o
-                            salir al encuentro de una
-                            naturaleza, siempre llena de sorpresas.</p>
+                            o salir al encuentro de una naturaleza, siempre llena de sorpresas.</p>
                         <a href="https://visitquito.ec/descubre/10-razones-para-visitar-quito/">Leer más</a>
                     </div>
                 </div>
@@ -179,33 +218,33 @@
                 </span>
 
             </section>
-            <style>
-                .btn-reservar {
-                    display: block;
-                    width: 160px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: black;
-                    font: aqua;
-                    cursor: pointer;
-                    margin: 80px auto;
-                    height: 55px;
-                    text-align: center;
-                    border: none;
-                    background-size: 300% 100%;
-                    border-radius: 50px;
-                    background-image: linear-gradient(to right,
-                            #0ba360,
-                            #3cba92,
-                            #30dd8a,
-                            #2bb673)
-                }
-            </style>
             <section>
+                <h4 class="parrafoFinal ">Formulario - reservacion de hotel</h4>
                 <a href="Formulario Beltran Carlos.html"><button class="btn-reservar">Reserva tu habitacion de
                         hotel</button></a>
             </section>
-            <p class="parrafoFinal ">Por Beltran Santistevan Carlos Steven, 21 de Diciembre del 2021</p>
+            <section class="imagenturismo">
+                <script type="text/javascript">
+                    function galeria(imagen) {
+                        const listImagenes= document.querySelectorAll(".imagenes");
+                        document.ampliar.src = imagen.src;
+                        listImagenes.forEach( (img)=>{
+                            img.classList.remove('activa');
+                        });
+                        imagen.classList.add('activa');
+                    }
+                </script>
+
+                <h3 class="tituloPrincipal" >"Paisajes turisticos de Quito"</h3>
+                <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="400px" height="400px" name="ampliar" />
+                <div>
+                    <img class="imagenes" src="assets/img/turism1.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism2.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism3.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
+                    <img class="imagenes" src="assets/img/turism4.jpg" alt="" width="100px" height="60px" onclick="galeria(this);" />
+                </div>
+            </section>
+            <p class="parrafoFinal ">Por Beltran Santistevan Carlos Steven</p>
             <br>
         </section>
     </main>
@@ -225,13 +264,9 @@
                 <img src="assets/img/twitter.png" alt="">
                 <span>Twitter</span>
             </div>
-
         </div>
         <div class="info-footer">
-
         </div>
     </footer>
-
 </body>
-
 </html>
