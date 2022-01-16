@@ -1,5 +1,5 @@
-﻿<!-- Beltran Santistevan Steven  -->
-<!-- Explora -->
+﻿<!-- Christian Gonzalez Espinoza  -->
+<!-- Precios -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,16 +28,16 @@
             border-radius: 0.25rem;
         }
 
-        .cgealert-success {
-            color: #0f5132;
-            background-color: #d1e7dd;
-            border-color: #badbcc;
+        .cgecorrecto {
+            color: #1ef55f8f;
+            background-color: #76e4b2;
+            border-color: #468368;
         }
 
-        .cgealert-danger {
-            color: #842029;
-            background-color: #f8d7da;
-            border-color: #f5c2c7;
+        .cgeerror {
+            color: #f5757f;
+            background-color: #f36570;
+            border-color: #f3061d;
         }
 	</style>
 </head>
@@ -221,14 +221,15 @@
         }
 
         function mensaje(elemento, nombre, cadenaMensaje) {
+            //<span class="input-group-text" >Nombres: </span>
             if (cadenaMensaje.length > 0){
                 elemento.focus();
                 var nodoPadre = elemento.parentNode;
                 var nodoMensaje = document.createElement("span");
                 nodoMensaje.textContent = nombre + " " + cadenaMensaje;
                 //nodoMensaje.style.color = "red";
-                nodoMensaje.display = "block";
-                nodoMensaje.setAttribute("class", "cgealert cgealert-danger");
+                //nodoMensaje.display = "block";
+                nodoMensaje.setAttribute("class", "input-group-text cgecorrecto");
                 nodoPadre.appendChild(nodoMensaje);
             } else {
                 elemento.focus();
@@ -237,7 +238,7 @@
                 nodoMensaje.textContent = nombre + " es correcto";
                 //nodoMensaje.style.color = "red";
                 //nodoMensaje.display = "block";
-                nodoMensaje.setAttribute("class", "cgealert cgealert-success");
+                nodoMensaje.setAttribute("class", "input-group-text cgeerror");
                 nodoPadre.appendChild(nodoMensaje);
             }
         }
@@ -265,11 +266,12 @@
             var letra = /^[a-z ,.'-]+$/i;// letrasyespacio   ///^[A-Z]+$/i;// solo letras
             var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             var telefonoreg = /^[0-9]{10}$/g; // para validar datos que deban tener 10 numeros
-
+            
             resultado = evaluatxt(nombre, 0, 50, letra, "El nombre", resultado);
             resultado = evaluatxt(apellido, 0, 50, letra, "El apellido", resultado);
             resultado = evaluatxt(email, 0, 100, correo, "El correo", resultado);
             resultado = evaluafile(documento, "El archivo", resultado);
+            resultado = evaluaselect(ciudad, "La ciudad", resultado);
             
             if (!resultado) {
                 event.preventDefault();  // detener el evento  //stop form from submitting
@@ -282,15 +284,21 @@
 
         function evaluatxt(txt, min, max, regexp, nombre, resultado) {
             var strResult = esVacio(txt, min, max, /[a-z]+/gi);
-            /*var bool = strResult.length === 0;
-            mensaje(txt, nombre, strResult);
-            return resultadoseguro(resultado, bool);*/
             return evalua(txt, strResult, nombre, resultado);
         }
 
         function evaluafile(file, nombre, resultado) {
             var strResult = esVacio(file);
             return evalua(file, strResult, nombre, resultado);
+        }
+
+        function evaluaselect(select, nombre, resultado) {
+            var strResult = "";
+            var optForm = select.selectedIndex;
+            if (optForm == null || optForm == 0) {
+                strResult = "debe ser seleccionada";
+            }
+            return evalua(select, strResult, nombre, resultado);
         }
 
         function evalua(elem, strResult, nombre, resultado) {
