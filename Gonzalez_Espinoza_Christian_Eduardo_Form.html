@@ -1,4 +1,4 @@
-<!-- Beltran Santistevan Steven  -->
+﻿<!-- Beltran Santistevan Steven  -->
 <!-- Explora -->
 <!DOCTYPE html>
 <html lang="es">
@@ -19,6 +19,26 @@
 			background-color: rgba(39, 41, 43, 0.03);
 			border: 1px solid rgba(39, 41, 43, 0.1);
 		}
+
+        .cgealert {
+            position: relative;
+            padding: 0.3rem 0.3rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+
+        .cgealert-success {
+            color: #0f5132;
+            background-color: #d1e7dd;
+            border-color: #badbcc;
+        }
+
+        .cgealert-danger {
+            color: #842029;
+            background-color: #f8d7da;
+            border-color: #f5c2c7;
+        }
 	</style>
 </head>
 
@@ -37,95 +57,104 @@
 			</div>
 		</nav>
 	</header>
-	<main class="container-md" Style="padding-top: .75rem;">
-		<div class="align-item-center">
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">Nombres: </span>
-				<input type="text" class="form-control" placeholder="Username" aria-label="Nombre"
-					aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">Apellidos: </span>
-				<input type="text" class="form-control" placeholder="Username" aria-label="Apellidos"
-					aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group mb-3">
-				<label class="input-group-text" for="inputGroupFile01">Carnet de vacunacion PDF</label>
-				<input type="file" class="form-control" id="inputGroupFile01">
-			</div>
-			<div class="input-group mb-3">
-				<label class="input-group-text" for="inputGroupSelect01">Ciudad a viajar</label>
-				<select class="form-select" id="inputGroupSelect01">
-					<option selected>Choose...</option>
-					<option value="1">Guayaquil</option>
-					<option value="2">Quito</option>
-					<option value="3">La Liberdad</option>
-					<option value="4">Cuenca</option>
-				</select>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">Direccion de correo electronico</label>
-				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ejemplo@ug.edu.ec">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">Razones por las que quiere viajar</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-			</div>
-			<label for="customRange3 mb-3" class="form-label">Debe mostrar nuestra marca ¿Qué tan comprometido esta a
-				mostrar la marca?</label>
-			<input type="range" class="form-range" min="0" max="20" step="0.5" id="customRange3">
-			<label for="customRange3" class="form-label">Deseos extra</label>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Aire acondicionado
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Tour con guardia privado
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Bebidas con alcohol metilico
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Bebidas con alcohol etilico
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Solo aguita y cola
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Soy captus y no quiero nada liquido
-				</label>
-			</div>
-			<label for="customRange3" class="form-label">Escoja bien [Si es hombre/ Si es mujer] </label>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-				<label class="form-check-label" for="flexRadioDefault1">
-					Lux/ezreal
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-				<label class="form-check-label" for="flexRadioDefault2">
-					Irelia/Akshan
-				</label>
-			</div>
-		</div>
-	</main>
+
+    <main class="container-md" Style="padding-top: .75rem;">
+        <form id="formContacto">
+            <div class="align-item-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" >Nombres: </span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Nombre"
+                           aria-describedby="basic-addon1" id="nombre"/>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Apellidos: </span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Apellidos"
+                           aria-describedby="basic-addon1" id="apellido"/>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Carnet de vacunacion PDF</label>
+                    <input type="file" class="form-control" id="documento"/>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">Ciudad a viajar</label>
+                    <select class="form-select" id="ciudad">
+                        <option selected>Choose...</option>
+                        <option value="1">Guayaquil</option>
+                        <option value="2">Quito</option>
+                        <option value="3">La Liberdad</option>
+                        <option value="4">Cuenca</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Direccion de correo electronico</label>
+                    <input type="email" class="form-control" id="email" placeholder="ejemplo@ug.edu.ec"/>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Razones por las que quiere viajar</label>
+                    <textarea class="form-control" id="razones" rows="3"></textarea>
+                </div>
+                <label for="customRange3 mb-3" class="form-label">
+                    Debe mostrar nuestra marca ¿Qué tan comprometido esta a
+                    mostrar la marca?
+                </label>
+                <input type="range" class="form-range" min="0" max="20" step="0.5" id="rango">
+                <label for="customRange3" class="form-label">Deseos extra</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="aire"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Aire acondicionado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="tour"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Tour con guardia privado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="bebidasme"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Bebidas con alcohol metilico
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="bebidaset"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Bebidas con alcohol etilico
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="agua"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Solo aguita y cola
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="captus"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Soy captus y no quiero nada liquido
+                    </label>
+                </div>
+                <label for="customRange3" class="form-label">Escoja bien [Si es hombre/ Si es mujer] </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="lux"/>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Lux/ezreal
+                    </label>
+                </div>
+                <div class="enviat">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="irelia" checked/>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Irelia/Akshan
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="submit" name="Enviar" id="submit"/>
+                </div>
+            </div>
+        </form>
+    </main>
+
 	<footer>
 		<img class="logo" src="assets/img/logo.png" alt="logo">
 		<div class="social-networks">
@@ -149,6 +178,104 @@
 	</footer>
 	<script type="text/javascript" src="bootstrap/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        var form = document.querySelector("#formContacto");
+        form.addEventListener('submit', validar);
+
+        function resultadoseguro(resultado, valoractual) {
+            return valoractual && resultado;
+        }
+
+        function esVacio(txt, min, max, regexp) {
+            console.log(txt);
+            resultado = "";
+            if (txt.value === '') {
+                resultado = "es requerido";
+            }
+            else if (!regexp.test(txt.value)) { //letra.test(txtNombres.value)
+                resultado = "solo debe contener letras";
+            }
+            else if (txt.value.length < min) {
+                resultado = "minimo " + min + " caracteres";
+            }
+            else if (txt.value.length > max) {
+                resultado = "maximo " + max + " caracteres";
+            }
+            return resultado;
+        }
+
+        function limpiarMensajes() {
+            var mensajes = document.querySelectorAll(".mensajeError");
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();// remueve o elimina un elemento de mi doc html
+            }
+        }
+
+        function mensaje(elemento, nombre, cadenaMensaje) {
+            if (cadenaMensaje.length > 0){
+                elemento.focus();
+                var nodoPadre = elemento.parentNode;
+                var nodoMensaje = document.createElement("span");
+                nodoMensaje.textContent = nombre + " " + cadenaMensaje;
+                //nodoMensaje.style.color = "red";
+                nodoMensaje.display = "block";
+                nodoMensaje.setAttribute("class", "cgealert cgealert-danger");
+                nodoPadre.appendChild(nodoMensaje);
+            } else {
+                elemento.focus();
+                var nodoPadre = elemento.parentNode;
+                var nodoMensaje = document.createElement("span");
+                nodoMensaje.textContent = nombre + " es correcto";
+                //nodoMensaje.style.color = "red";
+                //nodoMensaje.display = "block";
+                nodoMensaje.setAttribute("class", "cgealert cgealert-success");
+                nodoPadre.appendChild(nodoMensaje);
+            }
+        }
+
+        function validar(event) {
+            var resultado = true;
+            var strResult = "";
+            var nombre = document.getElementById("nombre");
+            var apellido = document.getElementById("apellido");
+            var documento = document.getElementById("documento");
+            var ciudad = document.getElementById("ciudad");
+            var email = document.getElementById("email");
+            var razones = document.getElementById("razones");
+            var rango = document.getElementById("rango");
+            var aire = document.getElementById("aire");
+            var tour = document.getElementById("tour");
+            var bebidasme = document.getElementById("bebidasme");
+            var bebidaset = document.getElementById("bebidaset");
+            var agua = document.getElementById("agua");
+            var captus = document.getElementById("captus");
+            var lux = document.getElementById("lux");
+            var irelia = document.getElementById("irelia");
+
+            var letra = /^[a-z ,.'-]+$/i;// letrasyespacio   ///^[A-Z]+$/i;// solo letras
+            var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            var telefonoreg = /^[0-9]{10}$/g; // para validar datos que deban tener 10 numeros
+
+            resultado = evaluatxt(nombre, 0, 50, letra, "El nombre", resultado);
+            resultado = evaluatxt(apellido, 0, 50, letra, "El apellido", resultado);
+            resultado = evaluatxt(email, 0, 100, correo, "El correo", resultado);
+            
+            if (!resultado) {
+                event.preventDefault();  // detener el evento  //stop form from submitting
+            } else {
+                alert("Datos correctos");
+            }
+            return resultado;
+        }
+        function evaluatxt(txt, min, max, regexp, nombre, resultado) {
+            strResult = esVacio(txt, 0, 10, /[a-z]+/gi);
+            var bool = strResult.length === 0;
+            mensaje(txt, nombre, strResult);
+            return resultadoseguro(resultado, bool);
+        }
+    </script>
+
 </body>
 
 </html>
