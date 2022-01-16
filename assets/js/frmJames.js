@@ -10,11 +10,12 @@ const expresiones = {
     nombre: false,
     apellido: false,
     email: false,
-    vacuna: false
+    vacuna: true
   };
 
   const formulario = document.getElementById("form");
-  const inputs = document.querySelectorAll("#form input");
+  const inputs = [...document.querySelectorAll("#form input")];
+  
 
 
 
@@ -22,18 +23,18 @@ const expresiones = {
   const validarRadio = ()=>{
   if(!document.querySelector('input[name="vacuna"]:checked')) {
     document.getElementById("form_question").classList.add("forms_field-incorrecto");
-  /*document.getElementById("form_question").classList.remove("forms_field-correcto");*/
+    document.getElementById("form_question").classList.remove("forms_field-correcto");
     document.querySelector("#form_question .form_input-error").classList.add("form_input-error-activo");
     vacuna = false;
   }else{
     document.getElementById("form_question").classList.remove("forms_field-incorrecto");
-    /*document.getElementById("form_question").classList.add("forms_field-correcto");*/
-    document.querySelector("#form_question .form_input-error").classList.remove("form_input-error-activo");
-    
+    document.getElementById("form_question").classList.add("forms_field-correcto");
+    document.querySelector("#form_question .form_input-error").classList.remove("form_input-error-activo"); 
     vacuna = true;
   }
-  
 }
+
+
 
 
   const validarCampo=(expresion,input,campo)=>{
@@ -82,10 +83,10 @@ const expresiones = {
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     const time_out=3000;
-    /*validarRadio();*/
-
+    validarRadio();
     const terminos = document.getElementById("terms");
-     if (inputValue.email && terminos.checked && inputValue.nombre==false && inputValue.apellido==false && inputValue.vacuna==false) {
+     if (inputValue.email && terminos.checked && inputValue.nombre==false && inputValue.apellido==false
+      && inputValue.vacuna ) {
 
      document.getElementById('form_msj-exito').classList.add('form_msj-exito-activo');
      document.getElementById('form_msj').classList.remove('form_msj-activo');
@@ -98,6 +99,7 @@ const expresiones = {
      
     } else {
       document.getElementById('form_msj').classList.add('form_msj-activo'); 
+  
     }
   });
   
