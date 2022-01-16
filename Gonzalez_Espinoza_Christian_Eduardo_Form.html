@@ -48,18 +48,18 @@
 			<a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
 			<div class="nav-links">
 				<ul>
-					<li><a href="Rendón Quijije Iván Alexander.html">Inicio</a></li>
-					<li><a href="Cantos Pinto James Douglas.html">Bioseguridad</a></li>
-					<li><a href="Beltrán Santistevan Carlos Steven.html">Explora</a></li>
-					<li><a href="Reyes Toala Nefi Javier.html">Conoce</a></li>
-					<li><a href="Gonzalez_Espinoza_Christian_Eduardo.html">Precios</a></li>
+                    <li><a href="Rendón Quijije Iván Alexander.html">Inicio</a></li>
+                    <li><a href="Cantos Pinto James Douglas.html">Bioseguridad</a></li>
+                    <li><a href="Beltrán Santistevan Carlos Steven.html">Explora</a></li>
+                    <li><a href="Reyes Toala Nefi Javier.html">Conoce</a></li>
+                    <li><a href="Gonzalez_Espinoza_Christian_Eduardo.html">Precios</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 
     <main class="container-md" Style="padding-top: .75rem;">
-        <form id="formContacto">
+        <form id="formPremio">
             <div class="align-item-center">
                 <div class="input-group mb-3">
                     <span class="input-group-text" >Nombres: </span>
@@ -142,14 +142,14 @@
                         Lux/ezreal
                     </label>
                 </div>
-                <div class="enviat">
+                <div class="form-check">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="irelia" checked/>
                     <label class="form-check-label" for="flexRadioDefault2">
                         Irelia/Akshan
                     </label>
                 </div>
-                <div class="form-check">
-                    <input type="submit" name="Enviar" id="submit"/>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
                 </div>
             </div>
         </form>
@@ -176,17 +176,25 @@
 
 		</div>
 	</footer>
-	<script type="text/javascript" src="bootstrap/js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 
     <script>
-        var form = document.querySelector("#formContacto");
+        var form = document.querySelector("#formPremio");
         form.addEventListener('submit', validar);
 
         function resultadoseguro(resultado, valoractual) {
             return valoractual && resultado;
         }
-
+        function esVacio(file) {
+            var filePath = file.value;
+            console.log(txt);
+            resultado = "";
+            if (filePath.value === '') {
+                resultado = "es requerido";
+            }
+            return resultado;
+        }
         function esVacio(txt, min, max, regexp) {
             console.log(txt);
             resultado = "";
@@ -206,7 +214,7 @@
         }
 
         function limpiarMensajes() {
-            var mensajes = document.querySelectorAll(".mensajeError");
+            var mensajes = document.querySelectorAll(".cgealert");
             for (let i = 0; i < mensajes.length; i++) {
                 mensajes[i].remove();// remueve o elimina un elemento de mi doc html
             }
@@ -235,6 +243,7 @@
         }
 
         function validar(event) {
+            limpiarMensajes();
             var resultado = true;
             var strResult = "";
             var nombre = document.getElementById("nombre");
@@ -260,18 +269,33 @@
             resultado = evaluatxt(nombre, 0, 50, letra, "El nombre", resultado);
             resultado = evaluatxt(apellido, 0, 50, letra, "El apellido", resultado);
             resultado = evaluatxt(email, 0, 100, correo, "El correo", resultado);
+            resultado = evaluafile(documento, "El archivo", resultado);
             
             if (!resultado) {
                 event.preventDefault();  // detener el evento  //stop form from submitting
+                alert("Datos Incorrectos");
             } else {
                 alert("Datos correctos");
             }
             return resultado;
         }
+
         function evaluatxt(txt, min, max, regexp, nombre, resultado) {
-            strResult = esVacio(txt, 0, 10, /[a-z]+/gi);
-            var bool = strResult.length === 0;
+            var strResult = esVacio(txt, min, max, /[a-z]+/gi);
+            /*var bool = strResult.length === 0;
             mensaje(txt, nombre, strResult);
+            return resultadoseguro(resultado, bool);*/
+            return evalua(txt, strResult, nombre, resultado);
+        }
+
+        function evaluafile(file, nombre, resultado) {
+            var strResult = esVacio(file);
+            return evalua(file, strResult, nombre, resultado);
+        }
+
+        function evalua(elem, strResult, nombre, resultado) {
+            var bool = strResult.length === 0;
+            mensaje(elem, nombre, strResult);
             return resultadoseguro(resultado, bool);
         }
     </script>
