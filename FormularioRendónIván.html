@@ -32,9 +32,29 @@
         .semi-transparent{
             color: rgba(155, 151, 151, 0.904);
         }
+    
+        .form-wrong{
+            border: 2px solid red;
+            box-shadow: 0 0 2px red;
+        }
+
+        input{
+            outline: none;
+        }
+
+        .msj-error{
+            color: red;
+        }
+
+        .msj-error-hide{
+            height: 0;
+            visibility: hidden;
+        }
+
 
         
     </style>
+    <script src="https://kit.fontawesome.com/324a9c7d86.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -54,6 +74,7 @@
     </header>
     
     <main>
+
         <section class="mas-info">
             <h2>Obtener mayor información</h2>
             <div class="container-forms">
@@ -63,46 +84,51 @@
                                 Nombre*
                             </span> <br>
                         <input class="form-control" type="text" name="nombre" id="nombre-label">
+                        <p class="msj-error msj-error-hide" id="msj-error-nombre">Este campo es obligatorio. No se acepta numeros, ni simbolos.</p>
                     </div>
         
                     <div class="form-group">
                             <span class="label-form">
                                 Apellidos*
                             </span><br>
-                        <input class="form-control" type="text" name="apellido" id="apellido-label">
+                        <input class="form-control" type="text" name="apellidos" id="apellidos-label">
+                        <p class="msj-error msj-error-hide" id="msj-error-apellidos">Este campo es obligatorio. No se acepta numeros, ni simbolos.</p>
                     </div>
 
                     <div class="form-group">
                         <span class="label-form">
-                            Celular <span class="semi-transparent">(No obligatorio)</span> 
+                            telefono <span class="semi-transparent">(No obligatorio)</span> 
                         </span> <br>
-                    <input class="form-control" type="text" name="nombre" id="nombre-label">
-                    </div>
-
-                    <div class="form-group">
-                        <span class="label-form">
-                            Asunto*
-                        </span> <br>
-                    <input class="form-control" type="text" name="nombre" id="nombre-label">
+                    <input class="form-control" type="text" name="telefono" id="telefono-label">
+                    <p class="msj-error msj-error-hide" id="msj-error-telefono">Solo se aceptan números. Deben ser 10 digitos.</p>
                     </div>
 
                     <div class="form-group">
                         <span class="label-form">
                             Correo*
                         </span><br>
-                        <input class="form-control" type="email" name="correo" id="apellido-label">
+                        <input class="form-control" type="email" name="correo" id="correo-label">
+                        <p class="msj-error msj-error-hide" id="msj-error-correo">Debe ser un correo valido.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="label-form">
+                            Asunto*
+                        </span> <br>
+                    <input class="form-control" type="text" name="asunto" id="asunto-label">
                     </div>
 
                     <div class="form-group">
                         <span class="label-form">
                             Mensaje*
                         </span><br>
-                    <textarea class="form-control" name="mensaje" id="mensaje" cols="60" rows="10"></textarea>
+                    <textarea class="form-control" name="mensaje" id="mensaje-label" cols="60" rows="10"></textarea>
                     </div>
     
                     <div class="form-group">
         
-                        <input class="btn-submit" type="submit" name="submit" id="submit">
+                        <input class="btn-submit form-control" type="submit" name="submit" id="submit">
+                        <p class="msj-error msj-error-hide" id="msj-error-enviar">Hay campos erroneos.</p>
                     </div>
         
                 </form>
