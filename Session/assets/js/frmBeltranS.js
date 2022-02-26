@@ -23,7 +23,24 @@ function txNombres(event) {
        return regex.test(email) ? true : false;
    }
 
- 
+   $(document).ready(function(){
+    $("#fechadesde").focus(function(){
+        $('#msg').html('');
+    });
+    $("#fechadesde").blur(function(){
+        var hoy = new Date();
+        var fecha = $('#fechadesde').val();
+        var fechaFormulario = Date.parse(fecha);
+        
+        if (hoy <= fechaFormulario) {
+            $('#msg').html("Fecha a partir de hoy");
+        } else {
+            $('#msg').html("Fecha pasado");
+        }
+    });
+});
+
+
 var form = document.querySelector("#reservaciones");
 form.addEventListener('submit', valida);
 function valida(event) {
@@ -56,10 +73,8 @@ function valida(event) {
     {
         alert("El email NO es correcto");
     }
-    var fechainicial = document.getElementById("fechadesde").value;
-    var fechafinal = document.getElementById("fechahasta").value;
-    if(fechafinal.year > fechainicial.year || fechafinal.month > fechainicial.month || fechafinal.day > fechainicial.day)
-    alert("La fecha final debe ser mayor a la fecha inicial");
+    
+
 
 }
 function mensaje(cadenaMensaje, elemento) {

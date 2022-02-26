@@ -13,7 +13,7 @@
 	}
 	</style>
 	<script src="assets/js/frmBeltranS.js"></script>
-	<title>Formulario</title>
+	<title>Formulario - Registro de reservacion</title>
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="stylesheet" href="path/to/css/smart-forms.css">
 	<link rel="stylesheet" href="path/to/css/font-awesome.min.css">
@@ -43,7 +43,7 @@
 				Toca la imagen para mas informacion</a>
 			<p>El Quito Dann Carlton ofrece alojamiento elegante a 1 hora en coche del aeropuerto Mariscal Sucre.</p>
 		</div>
-		<form id="reservaciones">
+		<form id="reservaciones" method="POST" action="./registrarBeltran.php">
 			<div class="form-body">
 				<div class="section1">
 					<label for="cedula" class="field-label">Cedula o Pasaporte</label>
@@ -77,13 +77,14 @@
 				</div>
 
 				<div class="section1">
-					<label for="fechadesde" class="field-label">Desde la fecha:</label>
+					<label for="fechadesde" class="field-label">Reservar desde:</label>
 					<input type="date" id="fechadesde" name="fechadesde" class="gui-input" required="">
+					<p id="msg"></p>
 				</div>
 
 				<div class="section1">
-					<label for="fechahasta" class="field-label">Hasta la fecha:</label>
-					<input type="date" id="fechahasta" name="fechahasta" class="gui-input" required="">
+					<label for="diasreservado" class="field-label">Numero de dias:</label>
+					<input type="number" min="1" max="365" id="diasreservado" name="diasreservado" class="gui-input" required="" placeholder="Numero de dias" onkeypress="return valideKey(event);">
 				</div>
 
 				<br>
@@ -91,6 +92,7 @@
 					<button type="submit" name="submit" id="submit">Confirmar reservacion</button>
 					<button type="reset">Cancelar</button>
 				</div>
+				<a href='./listarBeltran.php'><input type='button' value='VER REGISTRADOS'></a>
 			</div>
 		</form>
 		<br>
