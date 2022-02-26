@@ -29,7 +29,7 @@ CREATE TABLE `reservacion` (
 
 CREATE TABLE `grupo2`.`mas_informacion` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombres` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NULL,
   `correo` VARCHAR(45) NOT NULL,
