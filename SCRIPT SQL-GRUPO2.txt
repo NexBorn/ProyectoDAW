@@ -22,3 +22,17 @@ CREATE TABLE `reservacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `mas_informacion`
+-- Rendón Quijije Iván
+
+CREATE TABLE `grupo2`.`mas_informacion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombres` VARCHAR(45) NOT NULL,
+  `apellidos` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(45) NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `asunto` VARCHAR(45) NOT NULL,
+  `mensaje` MEDIUMTEXT NOT NULL,
+  PRIMARY KEY (`id`));
