@@ -62,12 +62,19 @@
         .tabla_col_datos:hover {
             background-color: rgb(230, 230, 230);
         }
+
+        .nav-mode {
+            position: relative;
+            top: -10rem;
+        }
     </style>
     <script src="https://kit.fontawesome.com/324a9c7d86.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
     <header class="big-header big-header-2">
+
         <nav>
             <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
             <div class="nav-links">
@@ -80,6 +87,13 @@
                 </ul>
             </div>
         </nav>
+
+        <?php
+        include('navRendon.php');
+        ?>
+        
+
+
     </header>
 
     <main>
