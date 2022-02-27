@@ -1,8 +1,4 @@
 <?php
-    //include('conexionBeltran.php');
-
-    //Base de datos Rendon con contraseña
-    //
     $conex = mysqli_connect("localhost", "root", "admin", "grupo2");
 
     if(isset($_POST['nombre']) &&
