@@ -105,7 +105,7 @@
 
 
         <?php
-            $conex = mysqli_connect("localhost", "root", "admin", "grupo2");
+             include("./conexion.php");
             if(isset($_POST["id_eliminar"])){
                 $id_eliminar = $_POST["id_eliminar"];
                 $sql= "DELETE FROM mas_informacion WHERE id = $id_eliminar";

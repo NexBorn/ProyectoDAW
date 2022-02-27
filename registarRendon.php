@@ -1,5 +1,5 @@
 <?php
-    $conex = mysqli_connect("localhost", "root", "admin", "grupo2");
+    include("./conexion.php");
 
     if(isset($_POST['nombre']) &&
         isset($_POST['apellidos']) &&
@@ -30,7 +30,7 @@
         if($resultado){
             echo "<h2>Mensaje enviado correctamente</h2>";
 
-            header('Location: FormularioRendónIván.html');
+            header('Location: FormularioRendónIván.php');
         }
 
     }
