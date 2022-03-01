@@ -1,0 +1,12 @@
+.footer{ /*Cantos*/
+    clear: both;
+    min-height: 20px;
+    margin-top: 50px;
+    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)), url(../img/footer_quito.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
