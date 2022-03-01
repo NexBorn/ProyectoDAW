@@ -44,8 +44,8 @@
                         Genero
                     </span><br>
                 <div>
-                    Masculino: <input type="radio" name="radiobtn" class="checkbox">
-                    Femenino: <input type="radio" name="radiobtn" class="checkbox">
+                    Masculino: <input type="radio" name="genero_masculino" class="checkbox">
+                    Femenino: <input type="radio" name="genero_femenino" class="checkbox">
                 </div>
 
             </div>
@@ -60,7 +60,7 @@
                     <span class="label-form">
                         Fecha de nacimiento
                     </span><br>
-                <input class="form-control" type="date" name="edad" id="date">
+                <input class="form-control" type="date" name="fecha_nac" id="date">
             </div>
 
             <div class="form-group">

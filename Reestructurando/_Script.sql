@@ -1,3 +1,5 @@
+-- cdm -- mysql -u root -p
+
 -- Base de datos: `grupo2`
 --
 DROP DATABASE IF EXISTS `grupo2`;
@@ -39,3 +41,44 @@ CREATE TABLE `grupo2`.`mas_informacion` (
   `mensaje` MEDIUMTEXT NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `protocolo_covid`
+-- Cantos
+CREATE TABLE `protocolo_covid` (
+  `id_protocolo_covid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `sur_name` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `vacuna` varchar(6) NOT NULL,
+  `mask` int(1) NOT NULL,
+  `range_washs` int(2) NOT NULL,
+  `terms` Boolean NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Estructura de tabla para la tabla `protocolo_covid`
+-- Gonzalez
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `contraseña` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Estructura de tabla para la tabla `protocolo_covid`
+-- Reyes
+CREATE TABLE `user` (
+  `id_user` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `genero` Boolean NOT NULL,
+  `edad` int(3) NOT NULL,
+  `fecha_nac` DATE NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
