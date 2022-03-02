@@ -55,14 +55,14 @@ CREATE TABLE `protocolo_covid` (
   `sur_name` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `vacuna` varchar(6) NOT NULL,
-  `mask` int(1) NOT NULL,
-  `range_washs` int(2) NOT NULL,
-  `terms` Boolean NOT NULL
+  `mask` int(3) NOT NULL,
+  `range_washs` int(3) NOT NULL,
+  `terms` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 --
--- Estructura de tabla para la tabla `protocolo_covid`
+-- Estructura de tabla para la tabla `usuario`
 -- Gonzalez
 CREATE TABLE `usuario` (
   `id_usuario` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -72,7 +72,7 @@ CREATE TABLE `usuario` (
   `contraseña` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
--- Estructura de tabla para la tabla `protocolo_covid`
+-- Estructura de tabla para la tabla `user`
 -- Reyes
 CREATE TABLE `user` (
   `id_user` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,

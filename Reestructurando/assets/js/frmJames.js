@@ -80,26 +80,24 @@ const expresiones = {
   });
   
 
-  formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const time_out=3000;
-    validarRadio();
-    const terminos = document.getElementById("terms");
-     if (inputValue.email && terminos.checked && inputValue.nombre==false && inputValue.apellido==false
-      && inputValue.vacuna ) {
+formulario.addEventListener("submit", (e) => {
+	alert("Aqui");
+	//e.preventDefault();
+	const time_out=3000;
+	validarRadio();
+	const terminos = document.getElementById("terms");
+	if (inputValue.email && terminos.checked && inputValue.nombre==false && inputValue.apellido==false && inputValue.vacuna ) {
 
-     document.getElementById('form_msj-exito').classList.add('form_msj-exito-activo');
-     document.getElementById('form_msj').classList.remove('form_msj-activo');
-     setTimeout(() => {
-        document.getElementById('form_msj-exito').classList.remove('form_msj-exito-activo');
-      }, time_out);
-
-      formulario.reset();
-     
-     
-    } else {
-      document.getElementById('form_msj').classList.add('form_msj-activo'); 
-  
-    }
-  });
+		document.getElementById('form_msj-exito').classList.add('form_msj-exito-activo');
+		document.getElementById('form_msj').classList.remove('form_msj-activo');
+		setTimeout(() => {
+				document.getElementById('form_msj-exito').classList.remove('form_msj-exito-activo');
+			}, time_out
+		);
+		//formulario.reset();
+	} else {
+		document.getElementById('form_msj').classList.add('form_msj-activo'); 
+		e.preventDefault(); 
+	}
+});
   

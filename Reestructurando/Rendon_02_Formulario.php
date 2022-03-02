@@ -57,11 +57,10 @@
 <body>
     <header class="big-header big-header-2">
         <?php
-        include('comun/NavPrincipal.php');
-        ?>
-
+		include('comun/NavPrincipal.php');
+		?>
         <?php
-        include('navRendon.php');
+        include('Rendon_04_CRUD__Nav.PHP');
         ?>
     </header>
 
@@ -70,7 +69,7 @@
         <section class="mas-info">
             <h2>Obtener mayor información</h2>
             <div class="container-forms">
-                <form class="mas-informacion" id="mas_informacion" method="post" action="./registarRendon.php">
+                <form class="mas-informacion" id="mas_informacion" method="post" action="./Rendon_04_CRUD_Registrar.php">
                     <div class="form-group">
                         <span class="label-form">
                             Nombre*

@@ -12,11 +12,15 @@
                 <?php
 				include('comun/NavPrincipal.php');
 				?>
+				<?php
+				include('comun/Nav_CRUD.php');
+				nav_crud('Cantos');
+				?>
         </header>
         <main>
             <div class="container-form">
                 <h1 id="id">Encuesta protocolo covid</h1>
-                <form class="form" id="form">
+                <form class="form" id="form" method="post" action="./Cantos_04_CRUD_Registrar.php">
                     <!-- Nombres -->
                     <div class="forms_field"  id="form_name">
                         <label for="name" class="form_label">Nombres:</label>
@@ -94,7 +98,7 @@
                  </form>
              </div>
         </main>
-                <script src="assets/js/frmJames.js"></script>
+                
                 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
                 <script>
 
