@@ -75,10 +75,10 @@ CREATE TABLE `usuario` (
 -- Estructura de tabla para la tabla `user`
 -- Reyes
 CREATE TABLE `user` (
-  `id_user` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
-  `genero` Boolean NOT NULL,
+  `genero` int(3) NOT NULL,
   `edad` int(3) NOT NULL,
   `fecha_nac` DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
