@@ -23,7 +23,7 @@
             if($resultado){
                 ?>
                 <h3>Guardado exitoso en la BD</h3>
-               <a href='./listarBeltran.php'><input type='button' value='MOSTRAR TODOS'></a>
+               <a href='./Beltran_04_CRUD_Listar.php'><input type='button' value='MOSTRAR TODOS'></a>
                 <?php
             }else{
                 ?>

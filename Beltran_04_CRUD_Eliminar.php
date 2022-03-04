@@ -36,7 +36,7 @@
 
             mysqli_query($conex, $sql);
 
-            header("location:listarBeltran.php");
+            header("location:Beltran_04_CRUD_Listar.php");
         }
         ?>
 </body>

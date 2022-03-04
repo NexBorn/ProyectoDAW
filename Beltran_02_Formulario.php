@@ -34,7 +34,7 @@
 				Toca la imagen para mas informacion</a>
 			<p>El Quito Dann Carlton ofrece alojamiento elegante a 1 hora en coche del aeropuerto Mariscal Sucre.</p>
 		</div>
-		<form id="reservaciones" method="POST" action="./registrarBeltran.php">
+		<form id="reservaciones" method="POST" action="./Beltran_04_CRUD_Registrar.php">
 			<div class="form-body">
 				<div class="section1">
 					<label for="cedula" class="field-label">Cedula o Pasaporte</label>
@@ -83,7 +83,7 @@
 					<button type="submit" name="submit" id="submit">Confirmar reservacion</button>
 					<button type="reset">Cancelar</button>
 				</div>
-				<a href='./listarBeltran.php'><input type='button' value='VER REGISTRADOS'></a>
+				<a href='./Beltran_04_CRUD_Listar.php'><input type='button' value='VER REGISTRADOS'></a>
 			</div>
 		</form>
 		<br>

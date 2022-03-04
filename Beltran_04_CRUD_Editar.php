@@ -45,7 +45,7 @@ if (isset($_POST['txtid']) && isset($_POST['cedula']) && isset($_POST['name']) &
     adultos = '$adults', ninos = '$children', reservadodesde = '$fechadesde', diasreservado = '$diasreservado' where id_reservacion=$id";
 
     if (mysqli_query($conex, $sql2)) {
-        header("location:listarBeltran.php"); //redireccionar
+        header("location:Beltran_04_CRUD_Listar.php"); //redireccionar
     } else {
         echo "Error: " . $sql2 . "" . mysqli_error($conex);
     }

@@ -73,8 +73,8 @@
                     echo "<td class='celda info'>". $row['reservadodesde']."</td>";
                     echo "<td class='celda info'>". $row['diasreservado']."</td>";
                     ?>
-                    <td class='celda info' >  <a href="./editarBeltran.php?id=<?php echo $row['id_reservacion'] ?>">EDITAR</a> </td>
-                    <td class='celda info' >  <a href="./eliminarBeltran.php?id=<?php echo $row['id_reservacion'] ?>">ELIMINAR</a> </td>
+                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Editar.php?id=<?php echo $row['id_reservacion'] ?>">EDITAR</a> </td>
+                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Eliminar.php?id=<?php echo $row['id_reservacion'] ?>">ELIMINAR</a> </td>
                     <?php
                     echo "</tr>";
                  }
@@ -82,7 +82,7 @@
         </table>
         
     </main>
-    <a href='./Formulario Beltran Carlos.html'><input type='button' value='VOLVER AL INICIO'></a>
+    <a href='./Beltran_02_Formulario.php'><input type='button' value='VOLVER AL INICIO'></a>
     
 </body>
 </html>
