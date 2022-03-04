@@ -25,7 +25,7 @@
         </h2>>
     </div>
     <div class="container-forms">
-        <form id="inscripciones">
+        <form id="inscripciones" method="post" action="./Reyes_04_CRUD_Registrar.php">
             <div class="form-group">
                     <span class="label-form">
                         Nombre

@@ -503,6 +503,19 @@ a:hover{
     overflow: hidden;
 }
 
+#CRUD{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    margin: 50px;
+    font-size: 20px;
+    background-color: #8FCB9B;
+    border-radius: 30px;
+    padding: 12px;
+    cursor: pointer;
+}
 
 .imagen-elementos{
     margin:5px auto;
