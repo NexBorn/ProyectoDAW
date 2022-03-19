@@ -1,19 +1,19 @@
 <?php
 
-require_once 'modelo/dao/CantosDAO.php';
+require_once 'modelo/dao/GonzalezDAO.php';
 
-class CantosControlador {
+class GonzalezControlador {
 
     private $modelo;
 
     public function __construct() {
-        $this->modelo = new CantosDAO();
+        $this->modelo = new GonzalezDAO();
     }
 
     // funciones del controlador
     public function index() {
         //llamo a la vista
-        require_once 'vista/Cantos/Cantos.Presentacion.php';
+        require_once 'vista/Gonzalez/Gonzalez.Presentacion.php';
     }
 
     public function buscar() {
@@ -24,7 +24,7 @@ class CantosControlador {
         $resultados = $this->modelo->buscar($busqueda);
 
         // comunicarnos a la vista
-        require_once 'vista/Cantos/Cantos.list.php';
+        require_once 'vista/Gonzalez/Gonzalez.list.php';
     }
 
    public function nuevo() {
@@ -54,15 +54,15 @@ class CantosControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Cantos&f=index');
+               header('Location:index.php?c=Gonzalez&f=index');
            
         } else { // mostrar el formulario
 
-            require_once 'modelo/dao/CantosDAO.php';
-            $mod = new CantosDAO();
+            require_once 'modelo/dao/GonzalezDAO.php';
+            $mod = new GonzalezDAO();
             
             // mostrar el formulario de nuevo producto
-            require_once 'vista/Cantos/Cantos.nuevo.php';
+            require_once 'vista/Gonzalez/Gonzalez.nuevo.php';
         }
     }
 
@@ -94,12 +94,12 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Gonzalez&f=index');
          
       } else { // mostrar el formulario, cargando los datos del producto
 
-          require_once 'modelo/dao/CantosDAO.php';
-          $mod = new CantosDAO();
+          require_once 'modelo/dao/GonzalezDAO.php';
+          $mod = new GonzalezDAO();
        
           //leeer parametros
           $id_protocolo= $_REQUEST['id_protocolo_covid']; 
@@ -107,7 +107,7 @@ class CantosControlador {
           //comunicando con el modelo
          $proto = $this->modelo->buscarxId($id_protocolo);
           // mostrar el formulario de editar producto
-          require_once 'vista/Cantos/Cantos.editar.php';
+          require_once 'vista/Gonzalez/Gonzalez.editar.php';
       }
   }
   
@@ -129,7 +129,7 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Gonzalez&f=index');
   }
 
 }

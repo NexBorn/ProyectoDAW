@@ -1,14 +1,13 @@
 <?php
 
 require_once 'config/config.php';
-class FrontCantosControlador {
+class FrontControlador {
 
     public function ruteo() {
         // leer parametros
         $controlador = (!empty($_REQUEST['c']))?htmlentities($_REQUEST['c']):CONTROLADOR_PRINCIPAL;
         
-       
-         $controlador = ucwords(strtolower($controlador))."Controlador";
+		$controlador = ucwords(strtolower($controlador))."Controlador";
          
         $funcion = (!empty($_REQUEST['f']))?htmlentities($_REQUEST['f']):FUNCION_PRINCIPAL;
 

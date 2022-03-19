@@ -1,19 +1,22 @@
 <?php
 
-require_once 'modelo/dao/CantosDAO.php';
+require_once 'modelo/dao/ReyesDAO.php';
 
-class CantosControlador {
+class ReyesControlador {
 
     private $modelo;
 
     public function __construct() {
-        $this->modelo = new CantosDAO();
+        $this->modelo = new ReyesDAO(); //modelo/dao/ReyesDAO.php
     }
 
     // funciones del controlador
     public function index() {
+        // llamar al modelo
+        // No va esto porque aqui va la presentacion $resultados = $this->modelo->listar();
+
         //llamo a la vista
-        require_once 'vista/Cantos/Cantos.Presentacion.php';
+        require_once 'vista/Reyes/Reyes.Presentacion.php';
     }
 
     public function buscar() {
@@ -24,7 +27,7 @@ class CantosControlador {
         $resultados = $this->modelo->buscar($busqueda);
 
         // comunicarnos a la vista
-        require_once 'vista/Cantos/Cantos.list.php';
+        require_once 'vista/Reyes/Reyes.list.php';
     }
 
    public function nuevo() {
@@ -54,15 +57,15 @@ class CantosControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Cantos&f=index');
+               header('Location:index.php?c=Reyes&f=index');
            
         } else { // mostrar el formulario
 
-            require_once 'modelo/dao/CantosDAO.php';
-            $mod = new CantosDAO();
+            require_once 'modelo/dao/ReyesDAO.php';
+            $mod = new ReyesDAO();
             
             // mostrar el formulario de nuevo producto
-            require_once 'vista/Cantos/Cantos.nuevo.php';
+            require_once 'vista/Reyes/Reyes.nuevo.php';
         }
     }
 
@@ -94,12 +97,12 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Reyes&f=index');
          
       } else { // mostrar el formulario, cargando los datos del producto
 
-          require_once 'modelo/dao/CantosDAO.php';
-          $mod = new CantosDAO();
+          require_once 'modelo/dao/ReyesDAO.php';
+          $mod = new ReyesDAO();
        
           //leeer parametros
           $id_protocolo= $_REQUEST['id_protocolo_covid']; 
@@ -107,7 +110,7 @@ class CantosControlador {
           //comunicando con el modelo
          $proto = $this->modelo->buscarxId($id_protocolo);
           // mostrar el formulario de editar producto
-          require_once 'vista/Cantos/Cantos.editar.php';
+          require_once 'vista/Reyes/Reyes.editar.php';
       }
   }
   
@@ -129,7 +132,7 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Reyes&f=index');
   }
 
 }

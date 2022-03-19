@@ -3,20 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/css/RendonStyles.css">
         <link rel="stylesheet" href="assets/css/styles.css">
-        <title>Formulario Registro</title>
+		<link rel="stylesheet" href="assets/css/comun.css">
+        <title><?php $tittle ?></title>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <!-- Bootstrap CSS -->  
         <link href="assets/bootstrap/css/bootstrapjames.css" rel="stylesheet">
     </head>
     <body>
         <header class="big-header-formulario">
-                <?php
-				include('comun/NavPrincipal.php');
-				?>
-				
+            <?php
+				include('NavPrincipal.php');
+			?>
         </header>
-
         <?php
         if (isset($_SESSION['mensaje']) and $_SESSION['mensaje'] != '') {
             ?>

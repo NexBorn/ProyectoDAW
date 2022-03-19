@@ -1,25 +1,32 @@
 <?php
 
-require_once 'modelo/dao/CantosDAO.php';
+require_once 'modelo/dao/RendonDAO.php';
 
-class CantosControlador {
+class RendonControlador {
 
     private $modelo;
 
     public function __construct() {
-        $this->modelo = new CantosDAO();
+        $this->modelo = new RendonDAO(); //modelo/dao/RendonDAO.php
     }
 
     // funciones del controlador
     public function index() {
         // llamar al modelo
-        $resultados = $this->modelo->listar();
+        // No va esto porque aqui va la presentacion $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once 'vista/Cantos/Cantos.list.php';
+        require_once 'vista/Rendon/Rendon.Presentacion.php';
     }
+	public function listar() {
+        // llamar al modelo
+        $resultados = $this->modelo->listar();
 
-    public function buscar() {
+        // comunicarnos a la vista
+        require_once 'vista/Rendon/Rendon.list.php';
+    }
+	
+	public function buscar() {
         // leer parametros
         $busqueda = $_POST['busqueda'];
 
@@ -27,10 +34,10 @@ class CantosControlador {
         $resultados = $this->modelo->buscar($busqueda);
 
         // comunicarnos a la vista
-        require_once 'vista/Cantos/Cantos.list.php';
+        require_once 'vista/Rendon/Rendon.list.php';
     }
-
-   public function nuevo() {
+	
+    public function nuevo() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// guardar
         // verificaciones
                //if(!isset($_POST['codigo'])){ header('');}
@@ -57,15 +64,15 @@ class CantosControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Cantos&f=index');
+               header('Location:index.php?c=Rendon&f=index');
            
         } else { // mostrar el formulario
 
-            require_once 'modelo/dao/CantosDAO.php';
-            $mod = new CantosDAO();
+            require_once 'modelo/dao/RendonDAO.php';
+            $mod = new RendonDAO();
             
             // mostrar el formulario de nuevo producto
-            require_once 'vista/Cantos/Cantos.nuevo.php';
+            require_once 'vista/Rendon/Rendon.nuevo.php';
         }
     }
 
@@ -97,12 +104,12 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Rendon&f=index');
          
       } else { // mostrar el formulario, cargando los datos del producto
 
-          require_once 'modelo/dao/CantosDAO.php';
-          $mod = new CantosDAO();
+          require_once 'modelo/dao/RendonDAO.php';
+          $mod = new RendonDAO();
        
           //leeer parametros
           $id_protocolo= $_REQUEST['id_protocolo_covid']; 
@@ -110,7 +117,7 @@ class CantosControlador {
           //comunicando con el modelo
          $proto = $this->modelo->buscarxId($id_protocolo);
           // mostrar el formulario de editar producto
-          require_once 'vista/Cantos/Cantos.editar.php';
+          require_once 'vista/Rendon/Rendon.editar.php';
       }
   }
   
@@ -132,7 +139,7 @@ class CantosControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Rendon&f=index');
   }
 
 }

@@ -1,15 +1,4 @@
-.footer{ /*Cantos*/
-    clear: both;
-    min-height: 20px;
-    margin-top: 50px;
-    background-image: linear-gradient( rgba(13, 39, 56, 0.7), rgba(4,9,30,1)), url(../img/footer_quito.jpg);
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    gap: 30px;
-}
+
 
 .btn-url_nav_general{ /*Copiado de Rendon y editado por Gonzalez*/
     display: block;
@@ -32,4 +21,30 @@
     #2bb673
     );
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+div {
+    display: block;
+}
+
+.social-networks {
+    padding-top: 20px;
+    padding-left: 30px;
+    min-width: 156px;
+    width: 250px;
+}
+
+.social-networks div {
+    justify-content: center;
+    padding: 10px;
+}
+
+.social-networks img {
+    width: 45px;
+}
+
+.social-networks span {
+    color: white;
+    position: relative;
+    top: -15px;
 }
