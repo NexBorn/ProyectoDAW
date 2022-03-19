@@ -51,9 +51,8 @@
                 
                 foreach ($resultados as $fila) {
                   ?>
-                <tr> 
-                    <td><?php echo "<tr>"?></td>;
-                    <td><?php echo $fila['id_reservacion';?></td>
+                <tr>
+                    <td><?php echo $fila['id_reservacion'];?></td>
                     <td><?php echo $fila['cedula_pasaporte'];?></td>
                     <td><?php echo $fila['apellidos_nombres'];?></td>
                     <td><?php echo $fila['email'];?></td>
@@ -67,11 +66,8 @@
                         <a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id_reservacion'=<?php echo  $fila['id_reservacion']; ?>">EDITAR</i></a>
                         <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Beltran&f=eliminar&id=<?php echo  $fila['id_reservacion']; ?>">ELIMINAR</i></a>
                     </td>
-                    </tr>
-                <?php  }?>
-                    echo "</tr>";
-                 }
-            ?>
+				</tr>
+         <?php  }?>
         </table>
 
 

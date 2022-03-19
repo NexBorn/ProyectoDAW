@@ -54,7 +54,7 @@
 					<button type="submit" name="submit" id="submit">Confirmar reservacion</button>
 					<button type="reset">Cancelar</button>
 				</div>
-				<a href='./Beltran.list.php'><input type='button' value='VER REGISTRADOS'></a>
+				<a href='index.php?c=Beltran&f=listar'><input type='button' value='VER REGISTRADOS'></a>
 			</div>
 		</form>
 

@@ -1,6 +1,6 @@
 <?php
 
-class Productos {
+class DAO {
     
     
 }

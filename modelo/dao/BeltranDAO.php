@@ -52,8 +52,20 @@ class BeltranDAO {
         }
         return true;
     }
-
-
+	
+	public function buscarxId($id_reservacion) { // buscar un producto por su id
+        $sql = "select * from reservacion where id_reservacion = :id_reservacion";
+        // preparar la sentencia
+        $stmt = $this->con->prepare($sql);
+        $data = ['id_reservacion' => $id_reservacion];
+        // ejecutar la sentencia
+        $stmt->execute($data);
+        // recuperar los datos (en caso de select)
+        $proto = $stmt->fetch(PDO::FETCH_ASSOC);// fetch retorna el primer registro
+        // retornar resultados
+        return $proto;
+    }
+	
     public function buscarxCe($cedula) { // buscar un producto por su id
         $sql = "select * from reservacion where cedula_pasaporte = :cedula_pasaporte";
         // preparar la sentencia
@@ -108,15 +120,15 @@ class BeltranDAO {
         return true;
     }
 
-    public function eliminar($cedula) {
+    public function eliminar($id) {
         //prepare
-        $sql = "DELETE FROM `reservacion` WHERE cedula_pasaporte=:cedula_pasaporte";
+        $sql = "DELETE FROM `reservacion` WHERE id_reservacion=:id";
         //now());
         //bind parameters
         $sentencia = $this->con->prepare($sql);
        
         $data = [
-            'cedula_pasaporte' => $cedula
+            'id' => $id
         ];
         //execute
         $sentencia->execute($data);
