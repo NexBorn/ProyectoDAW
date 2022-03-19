@@ -1,46 +1,76 @@
 <?php require_once 'vista/templates/encabezado.php'; ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <form action="index.php?c=productos&f=buscar" method="POST">
-                <input type="text" name="busqueda" id="busqueda"  placeholder="buscar..."/>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i>Buscar</button>
-            </form>       
-        </div>
-        <div class="col-sm-6 d-flex flex-column align-items-end">
-            <a href="index.php?c=productos&f=nuevo"> 
-                <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</button>
-            </a>
-        </div>
-    </div>
-    <div class="table-responsive mt-2">
-        <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-            <th>Código</th>
-            <th>Nombre </th>
-            <th>Categoría </th>
-            <th>Precio </th>
-            <th>Acciones </th>
-            </thead>
-            <tbody class="tabladatos">
-                <?php 
-                
-                foreach ($resultados as $fila) {
-                  ?>
-                <tr>
-                    <td><?php echo $fila['prod_codigo'];?></td>
-                    <td><?php echo $fila['prod_nombre'];?></td>
-                    <td><?php echo $fila['cat_nombre'];?></td>
-                    <td><?php echo $fila['prod_precio'];?></td>
-                    <td><a class="btn btn-primary" href="index.php?id=<?php echo  $fila['prod_id']; ?>"><i class="fas fa-marker"></i></a>
-                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?id=<?php echo  $fila['prod_id']; ?>"><i class="fas fa-trash-alt"></i></a>
-                    </td>
-                </tr>
-                <?php  }?>
-            </tbody>
-        </table>
-    </div>
+<style>
+        .titulo{
+            text-align: center;
+        }
+        .contenido{
+            padding:5%;
+        }
+        #estiloTabla{
+            width: 50%;
+            text-align: center;
+            margin-left:20%;
+            padding-top: 2%;
+        }
+        .cabecera, .numero{
+            background-color:lightblue;
+        }
+        .celda{
+            border:  white 1px solid;
+        }
+        .info{
+            background-color:lightgray;
+        }
+        table{
+            width: 100%;
+            padding-bottom: 5%;
+        }
+    </style>
 
-</div>
+<header class="titulo">
+            <div class="contenido">
+                <h1>REGISTRO DE RESERVACIONES</h1>
+            </div>
+        </header>
+        <table>
+            <tr class='cabecera'>
+                <td class='celda'><strong>ID</strong></td>
+                <td class='celda'><strong>CEDULA O PASAPORTE</strong> </td>
+                <td class='celda'><strong>APELLIDOS Y NOMBRES</strong></td>
+                <td class='celda'><strong>EMAIL</strong></td>
+                <td class='celda'><strong>TELEFONO</strong></td>
+                <td class='celda'><strong>ADULTOS</strong></td>
+                <td class='celda'><strong>NIÑOS</strong></td>
+                <td class='celda'><strong>RESERVADO DESDE</strong></td>
+                <td class='celda'><strong>DIAS RESERVADO</strong></td>
+                <td class='celda'><strong>EDITAR</strong></td>
+                <td class='celda'><strong>ELIMINAR</strong></td>
+            </tr>
+            <?php 
+                 $consulta = "SELECT * FROM reservacion";
+                 $resultado = mysqli_query($conex,$consulta);
+                 while($row = mysqli_fetch_array($resultado)){
+                    
+                    echo "<tr>";
+                    echo "<td class='celda numero'>". $row['id_reservacion']."</td>";
+                    echo "<td class='celda info'>". $row['cedula_pasaporte']."</td>";
+                    echo "<td class='celda info'>". $row['apellidos_nombres']."</td>";
+                    echo "<td class='celda info'>". $row['email']."</td>";
+                    echo "<td class='celda info'>". $row['telefono']."</td>";
+                    echo "<td class='celda info'>". $row['adultos']."</td>";
+                    echo "<td class='celda info'>". $row['ninos']."</td>";
+                    echo "<td class='celda info'>". $row['reservadodesde']."</td>";
+                    echo "<td class='celda info'>". $row['diasreservado']."</td>";
+                    ?>
+                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Editar.php?id=<?php echo $row['id_reservacion'] ?>">EDITAR</a> </td>
+                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Eliminar.php?id=<?php echo $row['id_reservacion'] ?>">ELIMINAR</a> </td>
+                    <?php
+                    echo "</tr>";
+                 }
+            ?>
+        </table>
+        <a href='./Beltran_02_Formulario.php'><input type='button' value='VOLVER AL INICIO'></a>
+
+
 <?php  require_once 'vista/templates/piedepagina.php'; ?>

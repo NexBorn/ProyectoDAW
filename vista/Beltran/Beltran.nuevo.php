@@ -1,55 +1,66 @@
 <!-- incluimos  Encabezado -->
 <?php require_once 'vista/templates/encabezado.php'; ?>
 
-<div class="container">
-    <div class="card card-body">
-        <form action="index.php?c=productos&f=nuevo" method="POST" name="formProdNuevo" id="formProdNuevo">
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label for="codigo">C&oacute;digo</label>
-                    <input type="text"  name="codigo" id="codigo" class="form-control" placeholder="codigo del producto" autofocus="" required/>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="nombre producto" required>
-                </div>
+<div class="encabezadoform">
+			<h2>Hotel Dann Carlton Quito</h2>
+			<a
+				href="https://www.booking.com/hotel/ec/dann-carlton-quito.es.html?aid=318615;label=New_Spanish_ES_EC_26746206505-bT2sBRUnFlfBej4X6poGEgS100755045025%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi2652769282%3Atiaud-294889296933%3Adsa-302866489863%3Alp20261%3Ali%3Adec%3Adm;sid=827826d509dcb58a391e3b2a34776bcf;atlas_src=sr_iw_title;dest_id=-932573;dest_type=city;dist=0;group_adults=2;group_children=0;no_rooms=1;room1=A%2CA%2C;sb_price_type=total;type=total;ucfs=1&">
+				<img class="unaimagen" src="assets/img/hotel.PNG" alt="hotel"> <br>
+				Toca la imagen para mas informacion</a>
+			<p>El Quito Dann Carlton ofrece alojamiento elegante a 1 hora en coche del aeropuerto Mariscal Sucre.</p>
+		</div>
+		<form id="reservaciones" method="POST" action="./Beltran_04_CRUD_Registrar.php">
+			<div class="form-body">
+				<div class="section1">
+					<label for="cedula" class="field-label">Cedula o Pasaporte</label>
+					<input type="text" name="cedula" id="cedula" class="gui-input" required="" placeholder="Cedula/Pasaporte" onkeypress="return valideKey(event);">
+				</div>
 
-                <div class="form-group col-sm-6">
-                    <label for="categoria">Categoria</label>
-                    <select id="categoria" name="categoria" class="form-control">
-                        <?php foreach ($categorias as $cat) {
-                            ?>
-                        <option value="<?php echo $cat->cat_id ?>"><?php echo $cat->cat_nombre; ?></option>
+				<div class="section1">
+					<label for="name" class="field-label">Apellidos y nombre</label>
+					<input type="text" name="name" onkeypress="return txNombres(event);" id="name" class="gui-input" required=""
+						placeholder="Apellidos y nombres completos">
+				</div>
 
-                            <?php
-                        }
-                        ?>   
+				<div class="section1">
+					<label for="email" class="field-label">Agregar Email</label>
+					<input type="email" name="email" id="email" class="gui-input" required="required" placeholder="E-mail">
+				</div>
 
-                    </select>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="precio">Precio</label>
-                    <input type="text" name="precio" id="precio" class="form-control" placeholder="precio producto" required>
-                </div>          
+				<div class="section1">
+					<label for="guestelephone" class="field-label">Telefono/Movil</label>
+					<input type="text" name="guestelephone" id="guestelephone" class="gui-input" required="" placeholder="Telefono/Celular" onkeypress="return valideKey(event);">
+				</div>
 
-                <div class="form-group col-sm-12">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea id="descripcion"  name="descripcion" class="form-control" rows="2"></textarea>
-                </div>
-                <div class="form-group col-sm-12">
-                    <input type="checkbox" id="estado" name="estado" >
-                    <label for="estado">Activo</label>
-                </div>
-                <div class="form-group mx-auto">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="index.php?c=producto&a=index" class="btn btn-primary">Cancelar</a>
-                </div>
-            </div>  
-        </form>
+				<div class="section1">
+					<label for="adults" class="field-label">Numero de adultos</label>
+					<input type="number" min="1" max="9" id="adults" name="adults" class="gui-input" required="" placeholder="Cantidad">
+				</div>
 
+				<div class="section1">
+					<label for="children" class="field-label">Numero de niños</label>
+					<input type="number" min="1" max="9" id="children" name="children" class="gui-input" required="" placeholder="Cantidad">
+				</div>
 
-    </div>
-</div>
+				<div class="section1">
+					<label for="fechadesde" class="field-label">Reservar desde:</label>
+					<input type="date" id="fechadesde" name="fechadesde" class="gui-input" required="">
+					<p id="msg"></p>
+				</div>
+
+				<div class="section1">
+					<label for="diasreservado" class="field-label">Numero de dias:</label>
+					<input type="number" min="1" max="365" id="diasreservado" name="diasreservado" class="gui-input" required="" placeholder="Numero de dias" onkeypress="return valideKey(event);">
+				</div>
+
+				<br>
+				<div class="form-button">
+					<button type="submit" name="submit" id="submit">Confirmar reservacion</button>
+					<button type="reset">Cancelar</button>
+				</div>
+				<a href='./Beltran_04_CRUD_Listar.php'><input type='button' value='VER REGISTRADOS'></a>
+			</div>
+		</form>
 
 <!-- incluimos  pie de pagina -->
 <?php require_once 'vista/templates/piedepagina.php'; ?>
