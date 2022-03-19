@@ -1,9 +1,5 @@
-        <?php
-       require_once 'controlador/FrontCantosControlador.php';
-
-
-        $front = new FrontCantosControlador();
-        $front->ruteo();
-        
-
-
+<?php
+    require_once 'controlador/FrontCantosControlador.php';
+    $front = new FrontCantosControlador();
+    $front->ruteo();
+?>
