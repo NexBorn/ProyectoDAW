@@ -48,29 +48,48 @@
                 <td class='celda'><strong>ELIMINAR</strong></td>
             </tr>
             <?php 
-                 $consulta = "SELECT * FROM reservacion";
-                 $resultado = mysqli_query($conex,$consulta);
-                 while($row = mysqli_fetch_array($resultado)){
-                    
-                    echo "<tr>";
-                    echo "<td class='celda numero'>". $row['id_reservacion']."</td>";
-                    echo "<td class='celda info'>". $row['cedula_pasaporte']."</td>";
-                    echo "<td class='celda info'>". $row['apellidos_nombres']."</td>";
-                    echo "<td class='celda info'>". $row['email']."</td>";
-                    echo "<td class='celda info'>". $row['telefono']."</td>";
-                    echo "<td class='celda info'>". $row['adultos']."</td>";
-                    echo "<td class='celda info'>". $row['ninos']."</td>";
-                    echo "<td class='celda info'>". $row['reservadodesde']."</td>";
-                    echo "<td class='celda info'>". $row['diasreservado']."</td>";
-                    ?>
-                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Editar.php?id=<?php echo $row['id_reservacion'] ?>">EDITAR</a> </td>
-                    <td class='celda info' >  <a href="./Beltran_04_CRUD_Eliminar.php?id=<?php echo $row['id_reservacion'] ?>">ELIMINAR</a> </td>
-                    <?php
+                
+                foreach ($resultados as $fila) {
+                  ?>
+                <tr> 
+                    <td><?php echo "<tr>"?></td>;
+                    <td><?php echo $fila['id_reservacion';?></td>
+                    <td><?php echo $fila['cedula_pasaporte'];?></td>
+                    <td><?php echo $fila['apellidos_nombres'];?></td>
+                    <td><?php echo $fila['email'];?></td>
+                    <td><?php echo $fila['telefono'];?></td>
+                    <td><?php echo $fila['adultos'];?></td>
+                    <td><?php echo $fila['ninos'];?></td>
+                    <td><?php echo $fila['reservadodesde'];?></td>
+                    <td><?php echo $fila['diasreservado'];?></td>
+
+                     <td>
+                        <a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id_reservacion'=<?php echo  $fila['id_reservacion']; ?>">EDITAR</i></a>
+                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Beltran&f=eliminar&id=<?php echo  $fila['id_reservacion']; ?>">ELIMINAR</i></a>
+                    </td>
+                    </tr>
+                <?php  }?>
                     echo "</tr>";
                  }
             ?>
         </table>
-        <a href='./Beltran_02_Formulario.php'><input type='button' value='VOLVER AL INICIO'></a>
 
+
+        <div class="row">
+        <div class="col-sm-6">
+            <form action="index.php?c=Beltran&f=buscar" method="POST">
+                <input type="text" name="busqueda" id="busqueda"  placeholder="buscar..."/>
+                <button type="submit" class="btn btn-primary"></i>Buscar</button>
+            </form>       
+        </div>
+        <div class="col-sm-6 d-flex flex-column align-items-end">
+            <a href="index.php?c=Beltran&f=nuevo">
+                <button type="button" class="btn btn-primary"></i> Nuevo</button>
+            </a>
+        </div>
+    </div>
+    </div>
+
+</div>
 
 <?php  require_once 'vista/templates/piedepagina.php'; ?>

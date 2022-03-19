@@ -1,57 +1,61 @@
 <?php require_once 'vista/templates/encabezado.php'; ?>
-<?php
-include_once ("Beltran_04_CRUD__Conexion.php");
-if (isset($_GET['id'])) {
-    $id = htmlentities($_GET['id']);
 
-
-    $sql = "select * from reservacion where id_reservacion = '" . $id . "'";
-    $resultado = mysqli_query($conex, $sql);
-    while ($fila = mysqli_fetch_assoc($resultado)) {
-        ?>
         <div>
-            <form method="post">
-                <input type="hidden" name="txtid2" value="<?php echo $fila['id'] ?>">
-                <div><label>Id:</label><input type="text" name="txtid" readonly value="<?php echo $fila['id_reservacion'] ?>"></div>
-                <div><label>Cedula o pasaporte:</label><input type="text" name="cedula" value="<?php echo $fila['cedula_pasaporte'] ?>"></div>
-                <div><label>Apellidos y nombres:</label><input type="text" name="name" value="<?php echo $fila['apellidos_nombres'] ?>"></div>
-                <div><label>Email:</label><input type="email" name="email" value="<?php echo $fila['email'] ?>"></div>
-                <div><label>Telefono:</label><input type="text" name="guestelephone" value="<?php echo $fila['telefono'] ?>"></div>
-                <div><label>Adultos:</label><input type="number" name="adults" value="<?php echo $fila['adultos'] ?>"></div>
-                <div><label>Niños:</label><input type="number" name="children" value="<?php echo $fila['ninos'] ?>"></div>
-                <div><label>Reservado desde:</label><input type="date" name="fechadesde" value="<?php echo $fila['reservadodesde'] ?>"></div>
-                <div><label>Dias reservado:</label><input type="number" name="diasreservado" value="<?php echo $fila['diasreservado'] ?>"></div>
-                <div><input type="submit" value="Actualizar"></div>
-            </form>
+
+            <form id="reservaciones" method="POST" action="index.php?c=Beltran&f=editar">
+			<div class="form-body">
+            <input type="hidden" name="txtid2" value="<?php echo $fila['id'] ?>">
+				<div class="section1">
+					<label for="cedula" class="field-label">Cedula o Pasaporte</label>
+					<input type="text" name="cedula" id="cedula" class="gui-input" required="" placeholder="Cedula/Pasaporte" onkeypress="return valideKey(event);">
+				</div>
+
+				<div class="section1">
+					<label for="name" class="field-label">Apellidos y nombre</label>
+					<input type="text" name="name" onkeypress="return txNombres(event);" id="name" class="gui-input" required=""
+						placeholder="Apellidos y nombres completos">
+				</div>
+
+				<div class="section1">
+					<label for="email" class="field-label">Agregar Email</label>
+					<input type="email" name="email" id="email" class="gui-input" required="required" placeholder="E-mail">
+				</div>
+
+				<div class="section1">
+					<label for="guestelephone" class="field-label">Telefono/Movil</label>
+					<input type="text" name="guestelephone" id="guestelephone" class="gui-input" required="" placeholder="Telefono/Celular" onkeypress="return valideKey(event);">
+				</div>
+
+				<div class="section1">
+					<label for="adults" class="field-label">Numero de adultos</label>
+					<input type="number" min="1" max="9" id="adults" name="adults" class="gui-input" required="" placeholder="Cantidad">
+				</div>
+
+				<div class="section1">
+					<label for="children" class="field-label">Numero de niños</label>
+					<input type="number" min="1" max="9" id="children" name="children" class="gui-input" required="" placeholder="Cantidad">
+				</div>
+
+				<div class="section1">
+					<label for="fechadesde" class="field-label">Reservar desde:</label>
+					<input type="date" id="fechadesde" name="fechadesde" class="gui-input" required="">
+					<p id="msg"></p>
+				</div>
+
+				<div class="section1">
+					<label for="diasreservado" class="field-label">Numero de dias:</label>
+					<input type="number" min="1" max="365" id="diasreservado" name="diasreservado" class="gui-input" required="" placeholder="Numero de dias" onkeypress="return valideKey(event);">
+				</div>
+
+				<br>
+				<div class="form-button">
+					<button type="submit" name="submit" id="submit">ACTUALIZAR</button>
+					<button type="reset">Cancelar</button>
+				</div>
+			</div>
+		</form>
+
         </div>
-    <?php
-    }
-}
-?>
-
-<?php
-if (isset($_POST['txtid']) && isset($_POST['cedula']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['guestelephone']) 
-&& isset($_POST['adults'])  && isset($_POST['children']) && isset($_POST['fechadesde']) && isset($_POST['diasreservado'])) {
-    $id = htmlentities($_POST['txtid']);
-    $cedula = htmlentities($_POST['cedula']);
-    $name = htmlentities($_POST['name']);
-    $email = htmlentities($_POST['email']);
-    $guestelephone = htmlentities($_POST['guestelephone']);
-    $adults = htmlentities($_POST['adults']);
-    $children = htmlentities($_POST['children']);
-    $fechadesde = htmlentities($_POST['fechadesde']);
-    $diasreservado = htmlentities($_POST['diasreservado']);
-
-    $sql2 = "update reservacion set cedula_pasaporte ='$cedula', apellidos_nombres ='$name', email = '$email', telefono = '$guestelephone',
-    adultos = '$adults', ninos = '$children', reservadodesde = '$fechadesde', diasreservado = '$diasreservado' where id_reservacion=$id";
-
-    if (mysqli_query($conex, $sql2)) {
-        header("location:Beltran_04_CRUD_Listar.php"); //redireccionar
-    } else {
-        echo "Error: " . $sql2 . "" . mysqli_error($conex);
-    }
-}
-?>
 
 
 <?php  require_once 'vista/templates/piedepagina.php'; ?>

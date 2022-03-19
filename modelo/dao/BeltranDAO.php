@@ -1,0 +1,132 @@
+<?php
+
+require_once 'config/Conexion.php';
+
+class BeltranDAO {
+
+    private $con;
+
+    public function __construct() {
+        $this->con = Conexion::getConexion();
+    }
+
+    
+    public function listar() {
+        // sql de la sentencia
+        $sql = "select * from reservacion where id_reservacion = id_reservacion";
+        //preparacion de la sentencia
+        $stmt = $this->con->prepare($sql);
+        //ejecucion de la sentencia
+        $stmt->execute();
+        //recuperacion de resultados
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // retorna datos para el controlador
+        return $resultados;
+    }
+
+ 
+    public function insertar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado) {
+        $sql = "INSERT INTO reservacion (cedula_pasaporte, apellidos_nombres, email, telefono, adultos, ninos, reservadodesde,  diasreservado) 
+        VALUES (:cedula_pasaporte, :apellidos_nombres, :email, :telefono, :adultos, :ninos, :reservadodesde, :diasreservado)";
+            
+        //bind parameters
+        $sentencia = $this->con->prepare($sql);
+        $fechaActual = new DateTime('NOW');
+        $strfecha = $fechaActual->format('Y-m-d H:i:s');
+        $data = [
+            'cedula_pasaporte' => $cedula,
+            'apellidos_nombres' => $name,
+            'email' => $email,
+            'telefono' => $guestelephone,
+            'adultos' => $adults,
+            'ninos' => $children,
+            'reservadodesde' => $fechadesde,
+            'diasreservado' => $diasreservado
+        ];
+        //execute
+        $sentencia->execute($data);
+        //retornar resultados, 
+        if ($sentencia->rowCount() <= 0) {// verificar si se inserto 
+            //rowCount permite obtner el numero de filas afectadas
+            return false;
+        }
+        return true;
+    }
+
+
+    public function buscarxCe($cedula) { // buscar un producto por su id
+        $sql = "select * from reservacion where cedula_pasaporte = :cedula_pasaporte";
+        // preparar la sentencia
+        $stmt = $this->con->prepare($sql);
+        $data = ['cedula_pasaporte' => $cedula];
+        // ejecutar la sentencia
+        $stmt->execute($data);
+        // recuperar los datos (en caso de select)
+        $proto = $stmt->fetch(PDO::FETCH_ASSOC);// fetch retorna el primer registro
+        // retornar resultados
+        return $proto;
+    }
+
+    public function buscar($parametro) {
+          // sql de la sentencia
+        $sql = "SELECT * FROM reservacion  where cedula_pasaporte = cedula_pasaporte  and 
+		(name like :b1)";
+        $stmt = $this->con->prepare($sql);
+        // preparar la sentencia
+        $conlike = '%' . $parametro . '%';
+        $data = ['b1' => $conlike];
+        // ejecutar la sentencia
+        $stmt->execute($data);
+        //obtener  resultados
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //retornar resultados
+        return $resultados;
+    }
+
+    public function actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado) {
+        //prepare
+        $sql = "UPDATE `reservacion` SET `cedula_pasaporte`=:cedula_pasaporte, `apellidos_nombres`=:apellidos_nombres, `email`=:email, `telefono`=:telefono, `adultos`:=adultos, `ninos`=:ninos, `reservadodesde`=:reservadodesde,  `diasreservado`=:diasreservado
+        WHERE id_reversacion=id_reservacion";
+        
+        $data = [
+            'cedula_pasaporte' => $cedula,
+            'apellidos_nombres' => $name,
+            'email' => $email,
+            'telefono' => $guestelephone,
+            'adultos' => $adults,
+            'ninos' => $children,
+            'reservadodesde' => $fechadesde,
+            'diasreservado' => $diasreservado
+        ];
+        //execute
+        $sentencia->execute($data);
+        //retornar resultados, 
+        if ($sentencia->rowCount() <= 0) {// verificar si se inserto 
+            //rowCount permite obtner el numero de filas afectadas
+            return false;
+        }
+        return true;
+    }
+
+    public function eliminar($cedula) {
+        //prepare
+        $sql = "DELETE FROM `reservacion` WHERE cedula_pasaporte=:cedula_pasaporte";
+        //now());
+        //bind parameters
+        $sentencia = $this->con->prepare($sql);
+       
+        $data = [
+            'cedula_pasaporte' => $cedula
+        ];
+        //execute
+        $sentencia->execute($data);
+        //retornar resultados, 
+        if ($sentencia->rowCount() <= 0) {// verificar si se inserto 
+            //rowCount permite obtner el numero de filas afectadas
+            return false;
+        }
+        return true;
+    }
+
+
+}

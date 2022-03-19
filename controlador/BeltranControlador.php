@@ -135,7 +135,7 @@ class BeltranControlador {
   public function eliminar(){
       
        //leeer parametros
-          $id_reservacion= $_REQUEST['id_reservacion'];
+       $id= $_REQUEST['id'];
         //  $usu= 'usuario';//$_SESSION['usuario'];
        //comunicando con el modelo
        $exito = $this->modelo->eliminar($id);
@@ -150,7 +150,7 @@ class BeltranControlador {
           $_SESSION['color'] = $color;
       //llamar a la vista
           //  $this->index();
-             header('Location:index.php?c=Cantos&f=index');
+             header('Location:index.php?c=Beltran&f=index');
   }
 
 }

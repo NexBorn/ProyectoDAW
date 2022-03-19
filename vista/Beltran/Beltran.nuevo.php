@@ -3,13 +3,9 @@
 
 <div class="encabezadoform">
 			<h2>Hotel Dann Carlton Quito</h2>
-			<a
-				href="https://www.booking.com/hotel/ec/dann-carlton-quito.es.html?aid=318615;label=New_Spanish_ES_EC_26746206505-bT2sBRUnFlfBej4X6poGEgS100755045025%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi2652769282%3Atiaud-294889296933%3Adsa-302866489863%3Alp20261%3Ali%3Adec%3Adm;sid=827826d509dcb58a391e3b2a34776bcf;atlas_src=sr_iw_title;dest_id=-932573;dest_type=city;dist=0;group_adults=2;group_children=0;no_rooms=1;room1=A%2CA%2C;sb_price_type=total;type=total;ucfs=1&">
-				<img class="unaimagen" src="assets/img/hotel.PNG" alt="hotel"> <br>
-				Toca la imagen para mas informacion</a>
 			<p>El Quito Dann Carlton ofrece alojamiento elegante a 1 hora en coche del aeropuerto Mariscal Sucre.</p>
 		</div>
-		<form id="reservaciones" method="POST" action="./Beltran_04_CRUD_Registrar.php">
+		<form id="reservaciones" method="POST" action="index.php?c=Beltran&f=nuevo">
 			<div class="form-body">
 				<div class="section1">
 					<label for="cedula" class="field-label">Cedula o Pasaporte</label>
@@ -58,7 +54,7 @@
 					<button type="submit" name="submit" id="submit">Confirmar reservacion</button>
 					<button type="reset">Cancelar</button>
 				</div>
-				<a href='./Beltran_04_CRUD_Listar.php'><input type='button' value='VER REGISTRADOS'></a>
+				<a href='./Beltran.list.php'><input type='button' value='VER REGISTRADOS'></a>
 			</div>
 		</form>
 
