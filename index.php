@@ -1,3 +1,9 @@
         <?php
-        include('Rendon_01_Presentacion.php');
-        ?>
+       require_once 'controlador/FrontCantosControlador.php';
+
+
+        $front = new FrontCantosControlador();
+        $front->ruteo();
+        
+
+

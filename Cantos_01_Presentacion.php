@@ -121,7 +121,7 @@
                         en el cual podemos validar si usted cumple con los protocolos necesarios
                         para acceder a nuestro viaje.Tu salud es importante para cuidarnos entre todos.
                     </p>
-                    <a id="link" href="Cantos_02_Formulario.php">Realizar Encuesta</a>
+                    <a id="link" href="index.php">Realizar Encuesta</a>
             </div>
             <div class="Footer-James">
                 <img class="logo" src="assets/img/logo.png" alt="logo">

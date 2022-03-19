@@ -8,5 +8,9 @@
 	// mysql> quit.
 	
     // Editar datos para conectar a su bd
-    $conex = mysqli_connect("localhost", "root", "root", "grupo2");
+  /*  $conex = mysqli_connect("localhost", "root", "", "grupo2");*/
+
+	
+
+
 ?>
