@@ -53,11 +53,11 @@ class BeltranDAO {
         return true;
     }
 	
-	public function buscarxId($id_reservacion) { // buscar un producto por su id
+	public function buscarxId($id) { // buscar un producto por su id
         $sql = "select * from reservacion where id_reservacion = :id_reservacion";
         // preparar la sentencia
         $stmt = $this->con->prepare($sql);
-        $data = ['id_reservacion' => $id_reservacion];
+        $data = ['id_reservacion' => $id];
         // ejecutar la sentencia
         $stmt->execute($data);
         // recuperar los datos (en caso de select)
@@ -66,27 +66,15 @@ class BeltranDAO {
         return $proto;
     }
 	
-    public function buscarxCe($cedula) { // buscar un producto por su id
-        $sql = "select * from reservacion where cedula_pasaporte = :cedula_pasaporte";
-        // preparar la sentencia
-        $stmt = $this->con->prepare($sql);
-        $data = ['cedula_pasaporte' => $cedula];
-        // ejecutar la sentencia
-        $stmt->execute($data);
-        // recuperar los datos (en caso de select)
-        $proto = $stmt->fetch(PDO::FETCH_ASSOC);// fetch retorna el primer registro
-        // retornar resultados
-        return $proto;
-    }
 
     public function buscar($parametro) {
           // sql de la sentencia
-        $sql = "SELECT * FROM reservacion  where cedula_pasaporte = cedula_pasaporte  and 
-		(name like :b1)";
+        $sql = "SELECT * FROM reservacion  where id_reservacion = id_reservacion  and 
+		(cedula_pasaporte like :b1 or apellidos_nombres like :b2)";
         $stmt = $this->con->prepare($sql);
         // preparar la sentencia
         $conlike = '%' . $parametro . '%';
-        $data = ['b1' => $conlike];
+        $data = ['b1' => $conlike,'b2' => $conlike];
         // ejecutar la sentencia
         $stmt->execute($data);
         //obtener  resultados
@@ -98,7 +86,7 @@ class BeltranDAO {
     public function actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado) {
         //prepare
         $sql = "UPDATE `reservacion` SET `cedula_pasaporte`=:cedula_pasaporte, `apellidos_nombres`=:apellidos_nombres, `email`=:email, `telefono`=:telefono, `adultos`:=adultos, `ninos`=:ninos, `reservadodesde`=:reservadodesde,  `diasreservado`=:diasreservado
-        WHERE id_reversacion=id_reservacion";
+        WHERE id_reservacion=id_reservacion";
         
         $data = [
             'cedula_pasaporte' => $cedula,

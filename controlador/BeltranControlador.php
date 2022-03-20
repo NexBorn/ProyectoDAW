@@ -72,12 +72,16 @@ class BeltranControlador {
         }
     }
 
-	
+	/*function editar(){
+    	$id=$_REQUEST['id'];
+    	$producto 	=	new Modelo();
+    	$dato=$producto->mostrar("productos","id=".$id);    	
+    	require_once("vista/editar.php");*/
+
 	public function editar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-			$id_reervacion=htmlentities($_POST['id_reervacion']);
-			
+			$id=htmlentities($_POST['id_reservacion']);
 			$cedula=htmlentities($_POST['cedula']);
             $name=htmlentities($_POST['name']);
             $email=htmlentities($_POST['email']);
@@ -88,7 +92,7 @@ class BeltranControlador {
             $diasreservado=htmlentities($_POST['diasreservado']);
 			
 			//llamar al modelo
-			$exito = $this->modelo->actualizar($id_reervacion, $cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado);
+			$exito = $this->modelo->actualizar($id,$cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado);
 			$msj = 'Información actualizada exitosamente';
 			$color = 'primary';
 			if (!$exito) {
@@ -100,7 +104,7 @@ class BeltranControlador {
 			$_SESSION['color'] = $color;
 			//llamar a la vista
 			//  $this->index();
-             header('Location:index.php?c=Beltran&f=index');
+             header('Location:index.php?c=Beltran&f=listar');
          
 		} else { // mostrar el formulario, cargando los datos del producto
 			
@@ -108,22 +112,11 @@ class BeltranControlador {
 			$mod = new BeltranDAO();
 			
 			//leeer parametros
-			$id_reservacion= $_REQUEST['id_reservacion']; 
-			$resultado = buscarxId($id_reervacion);
-			foreach ($resultados as $fila) {
-                $cedula=		$fila['cedula_pasaporte'];
-                $name=			$fila['apellidos_nombres'];
-                $email=			$fila['email'];
-                $guestelephone=	$fila['telefono'];
-                $adults=		$fila['adultos'];
-                $children=		$fila['ninos'];
-                $fechadesde=	$fila['reservadodesde'];
-                $diasreservado=	$fila['diasreservado'];
-			}
+			$id = $_REQUEST['id'];
 			
 			//comunicando con el modelo
-			$proto = $this->modelo->buscarxId($id_reservacion);
-			// mostrar el formulario de editar producto
+			$proto = $this->modelo->buscarxId($id);
+			// mostrar el formulario de editar 
 			require_once 'vista/Beltran/Beltran.editar.php';
 		}
 	}
