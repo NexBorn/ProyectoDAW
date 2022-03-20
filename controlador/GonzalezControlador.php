@@ -15,13 +15,19 @@ class GonzalezControlador {
         //llamo a la vista
         require_once 'vista/Gonzalez/Gonzalez.Presentacion.php';
     }
+	
+	public function gonzalezlistar() {
+		$resultados = $this->modelo->listar();
+        //llamo a la v
+        require_once 'vista/Gonzalez/Gonzalez.list.php';
+    }
 
-   public function nuevo() {
+	public function gonzaleznuevo() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// guardar
         // verificaciones
                //if(!isset($_POST['codigo'])){ header('');}
             // leer parametros
-			$id_usuario = htmlentities($_POST['id_usuario']);
+			$id_usuario = 0;
 			$nombre = htmlentities($_POST['nombre']);
 			$apellido = htmlentities($_POST['apellido']);
 			$usuario = htmlentities($_POST['usuario']);
@@ -40,7 +46,7 @@ class GonzalezControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Gonzalez&f=index');
+               header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
            
         } else { // mostrar el formulario
 
@@ -52,7 +58,7 @@ class GonzalezControlador {
         }
     }
 
-    public function editar(){
+    public function gonzalezeditar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// actualizar
 			// verificaciones
 				 
@@ -62,7 +68,7 @@ class GonzalezControlador {
 			$apellido = htmlentities($_POST['apellido']);
 			$usuario = htmlentities($_POST['usuario']);
 			$contrasena = htmlentities($_POST['contrasena']);
-         
+			
 			//llamar al modelo
 			$exito = $this->modelo->actualizar($id_usuario, $nombre, $apellido, $usuario, $contrasena);
 			$msj = 'Información actualizada exitosamente';
@@ -76,7 +82,7 @@ class GonzalezControlador {
 			$_SESSION['color'] = $color;
 			//llamar a la vista
 			//  $this->index();
-			header('Location:index.php?c=Gonzalez&f=index');
+			header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
          
 		} else { // mostrar el formulario, cargando los datos del producto
 			
@@ -84,34 +90,43 @@ class GonzalezControlador {
 			$mod = new GonzalezDAO();
 			
 			//leeer parametros
-			$id_protocolo= $_REQUEST['id_protocolo_covid']; 
-			
+			$id= $_REQUEST['id']; 
 			//comunicando con el modelo
-			$proto = $this->modelo->buscarxId($id_protocolo);
+			$proto = $this->modelo->buscar_id($id);
+			
+			echo "lariable";
+			var_dump($proto[0]["id_usuario"]);
 			// mostrar el formulario de editar producto
 			require_once 'vista/Gonzalez/Gonzalez.editar.php';
 		}
 	}
   
-  public function eliminar(){
-      
-       //leeer parametros
-          $id= $_REQUEST['id'];
-        //  $usu= 'usuario';//$_SESSION['usuario'];
-       //comunicando con el modelo
-       $exito = $this->modelo->eliminar($id);
-      $msj = 'Producto eliminado exitosamente';
-          $color = 'primary';
-          if (!$exito) {
-              $msj = "No se pudo eliminar la actualizacion";
-              $color = "danger";
-          }
-           if(!isset($_SESSION)){ session_start();};
-          $_SESSION['mensaje'] = $msj;
-          $_SESSION['color'] = $color;
-      //llamar a la vista
-          //  $this->index();
-             header('Location:index.php?c=Gonzalez&f=index');
-  }
-
+	public function gonzalezeliminar(){
+		//leeer parametros
+		$id= $_REQUEST['id'];
+		//  $usu= 'usuario';//$_SESSION['usuario'];
+		//comunicando con el modelo
+		$exito = $this->modelo->eliminar($id);
+		$msj = 'Item eliminado exitosamente';
+		$color = 'primary';
+		if (!$exito) {
+			$msj = "No se pudo eliminar la actualizacion";
+			$color = "danger";
+		}
+		if(!isset($_SESSION)){ session_start();};
+		$_SESSION['mensaje'] = $msj;
+		$_SESSION['color'] = $color;
+		//llamar a la vista
+		//  $this->index();
+        header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
+	}
+	
+	public function gonzalezbuscar() {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$nombre= $_REQUEST['busqueda'];
+			$resultados = $this->modelo->buscar($nombre);
+			//llamo a la v
+			require_once 'vista/Gonzalez/Gonzalez.list.php';
+		}
+    }
 }

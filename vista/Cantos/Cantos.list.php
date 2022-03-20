@@ -32,8 +32,8 @@
                     <td><?php echo $fila['range_washs'];?></td>
                     <td><?php echo $fila['terms'];?></td>
                     <td>
-                        <a class="btn btn-primary" href="index.php?c=Cantos&f=editar&id_protocolo_covid'=<?php echo  $fila['id_protocolo_covid']; ?>">EDITAR</i></a>
-                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Cantos&f=eliminar&id=<?php echo  $fila['id_protocolo_covid']; ?>">ELIMINAR</i></a>
+                        <a class="btn btn-primary" href="index.php?c=Cantos&f=cantoseditar&id_protocolo_covid'=<?php echo  $fila['id_protocolo_covid']; ?>">EDITAR</i></a>
+                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Cantos&f=cantoseliminar&id=<?php echo  $fila['id_protocolo_covid']; ?>">ELIMINAR</i></a>
                     </td>
                 </tr>
                 <?php  }?>
