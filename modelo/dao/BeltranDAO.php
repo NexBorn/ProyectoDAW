@@ -1,6 +1,7 @@
 <?php
 
 require_once 'config/Conexion.php';
+require_once 'modelo/dao/BeltranDAO.php';
 
 class BeltranDAO {
 
@@ -85,19 +86,22 @@ class BeltranDAO {
 
     public function actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado, $id) {
         //prepare
-        $sql = "UPDATE `reservacion` SET `cedula_pasaporte`=:cedula_pasaporte, `apellidos_nombres`=:apellidos_nombres, `email`=:email, `telefono`=:telefono, `adultos`:=adultos, `ninos`=:ninos, `reservadodesde`=:reservadodesde,  `diasreservado`=:diasreservado
-        WHERE id_reservacion=:id";
+        //$sql = "UPDATE `reservacion` SET cedula_pasaporte=:cedula_pasaporte, apellidos_nombres=:apellidos_nombres, email=:email, telefono=:telefono, adultos:=adultos, ninos=:ninos, reservadodesde=:reservadodesde,  diasreservado=:diasreservado
+        //WHERE id_reservacion=:id";
+
+        $sql = "update reservacion set cedula_pasaporte ='$cedula', apellidos_nombres ='$name', email = '$email', telefono = '$guestelephone',
+        adultos = '$adults', ninos = '$children', reservadodesde = '$fechadesde', diasreservado = '$diasreservado' where id_reservacion=$id";
         $sentencia = $this->con->prepare($sql);
         $data = [
-            'cedula_pasaporte' => $cedula,
-            'apellidos_nombres' => $name,
-            'email' => $email,
-            'telefono' => $guestelephone,
-            'adultos' => $adults,
-            'ninos' => $children,
+            'id_reservacion'=> $id,
+            'cedula_pasaporte'=> $cedula,
+            'apellidos_nombres'=> $name,
+            'email'=> $email,
+            'telefono'=> $guestelephone,
+            'adultos'=> $adults,
+            'ninos'=> $children,
             'reservadodesde' => $fechadesde,
-            'diasreservado' => $diasreservado,
-            'id'=>$id
+            'diasreservado'=> $diasreservado
         ];
         //execute
         $sentencia->execute($data);

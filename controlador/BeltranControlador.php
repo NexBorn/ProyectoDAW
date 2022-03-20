@@ -75,7 +75,7 @@ class BeltranControlador {
 	public function editar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-			$id=htmlentities($_POST['id']);
+			/*$id=htmlentities($_POST['id']);
 			$cedula=htmlentities($_POST['cedula']);
             $name=htmlentities($_POST['name']);
             $email=htmlentities($_POST['email']);
@@ -83,10 +83,20 @@ class BeltranControlador {
             $adults=htmlentities($_POST['adults']);
             $children=htmlentities($_POST['children']);
             $fechadesde=htmlentities($_POST['fechadesde']);
-            $diasreservado=htmlentities($_POST['diasreservado']);
-			
+            $diasreservado=htmlentities($_POST['diasreservado']);*/
+		
+            $id = htmlentities($_POST['id']);
+            $cedula = htmlentities($_POST['cedula']);
+            $name = htmlentities($_POST['name']);
+            $email = htmlentities($_POST['email']);
+            $guestelephone = htmlentities($_POST['guestelephone']);
+            $adults = htmlentities($_POST['adults']);
+            $children = htmlentities($_POST['children']);
+            $fechadesde = htmlentities($_POST['fechadesde']);
+            $diasreservado = htmlentities($_POST['diasreservado']);
+
 			//llamar al modelo
-			$exito = $this->modelo->actualizar($id,$cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado);
+			$exito = $this->modelo->actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado,$id);
 			$msj = 'Información actualizada exitosamente';
 			$color = 'primary';
 			if (!$exito) {
@@ -104,7 +114,7 @@ class BeltranControlador {
 			
 			require_once 'modelo/dao/BeltranDAO.php';
 			$modelo = new BeltranDAO();
-            $categorias = $modelo->listar();
+            //$prod = $modelo->listar();
 			
 			//leeer parametros
 			$id = $_GET['id'];
