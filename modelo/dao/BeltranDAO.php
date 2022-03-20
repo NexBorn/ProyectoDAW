@@ -13,7 +13,7 @@ class BeltranDAO {
     
     public function listar() {
         // sql de la sentencia
-        $sql = "select * from reservacion where id_reservacion = id_reservacion";
+        $sql = "select * from reservacion where id_reservacion = id_reservacion;";
         //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
@@ -54,10 +54,10 @@ class BeltranDAO {
     }
 	
 	public function buscarxId($id) { // buscar un producto por su id
-        $sql = "select * from reservacion where id_reservacion = :id_reservacion";
+        $sql = "select * from reservacion where id_reservacion =:id";
         // preparar la sentencia
         $stmt = $this->con->prepare($sql);
-        $data = ['id_reservacion' => $id];
+        $data = ['id' => $id];
         // ejecutar la sentencia
         $stmt->execute($data);
         // recuperar los datos (en caso de select)
@@ -69,8 +69,8 @@ class BeltranDAO {
 
     public function buscar($parametro) {
           // sql de la sentencia
-        $sql = "SELECT * FROM reservacion  where id_reservacion = id_reservacion  and 
-		(cedula_pasaporte like :b1 or apellidos_nombres like :b2)";
+        $sql = "select * from reservacion  where id_reservacion = id_reservacion  and 
+		(cedula like :b1 or name like :b2)";
         $stmt = $this->con->prepare($sql);
         // preparar la sentencia
         $conlike = '%' . $parametro . '%';
@@ -83,11 +83,11 @@ class BeltranDAO {
         return $resultados;
     }
 
-    public function actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado) {
+    public function actualizar($cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado, $id) {
         //prepare
         $sql = "UPDATE `reservacion` SET `cedula_pasaporte`=:cedula_pasaporte, `apellidos_nombres`=:apellidos_nombres, `email`=:email, `telefono`=:telefono, `adultos`:=adultos, `ninos`=:ninos, `reservadodesde`=:reservadodesde,  `diasreservado`=:diasreservado
-        WHERE id_reservacion=id_reservacion";
-        
+        WHERE id_reservacion=:id";
+        $sentencia = $this->con->prepare($sql);
         $data = [
             'cedula_pasaporte' => $cedula,
             'apellidos_nombres' => $name,
@@ -96,7 +96,8 @@ class BeltranDAO {
             'adultos' => $adults,
             'ninos' => $children,
             'reservadodesde' => $fechadesde,
-            'diasreservado' => $diasreservado
+            'diasreservado' => $diasreservado,
+            'id'=>$id
         ];
         //execute
         $sentencia->execute($data);

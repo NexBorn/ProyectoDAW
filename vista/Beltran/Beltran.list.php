@@ -62,10 +62,8 @@
                     <td><?php echo $fila['reservadodesde'];?></td>
                     <td><?php echo $fila['diasreservado'];?></td>
 
-                     <td>
-                        <a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id'=<?php echo  $fila['id_reservacion']; ?>">EDITAR</i></a>
-                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Beltran&f=eliminar&id=<?php echo  $fila['id_reservacion']; ?>">ELIMINAR</i></a>
-                    </td>
+                     <td><a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id=<?php echo  $fila['id_reservacion']; ?>">EDITAR</i></a></td>
+                     <td><a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Beltran&f=eliminar&id=<?php echo  $fila['id_reservacion']; ?>">ELIMINAR</i></a></td>
 				</tr>
          <?php  }?>
         </table>
@@ -73,14 +71,11 @@
 
         <div class="row">
         <div class="col-sm-6">
-            <form action="index.php?c=Beltran&f=buscar" method="POST">
-                <input type="text" name="busqueda" id="busqueda"  placeholder="buscar..."/>
-                <button type="submit" class="btn btn-primary"></i>Buscar</button>
-            </form>       
+                  
         </div>
         <div class="col-sm-6 d-flex flex-column align-items-end">
             <a href="index.php?c=Beltran&f=nuevo">
-                <button type="button" class="btn btn-primary"></i> Nuevo</button>
+                <button type="button" class="btn btn-primary"></i> Registrar nuevo</button>
             </a>
         </div>
     </div>

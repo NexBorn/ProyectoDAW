@@ -13,7 +13,7 @@ class BeltranControlador {
     // funciones del controlador
     public function index() {
         //llamo a la vista
-        require_once 'vista/Beltran/Beltran.Presentacion.php';
+        require_once 'vista/Beltran/Beltran.presentacion.php';
     }
 
 	public function listar() {
@@ -65,23 +65,17 @@ class BeltranControlador {
         } else { // mostrar el formulario
 
             require_once 'modelo/dao/BeltranDAO.php';
-            $mod = new BeltranDAO();
+            $modelo = new BeltranDAO();
             
             // mostrar el formulario de nuevo producto
             require_once 'vista/Beltran/Beltran.nuevo.php';
         }
     }
 
-	/*function editar(){
-    	$id=$_REQUEST['id'];
-    	$producto 	=	new Modelo();
-    	$dato=$producto->mostrar("productos","id=".$id);    	
-    	require_once("vista/editar.php");*/
-
 	public function editar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-			$id=htmlentities($_POST['id_reservacion']);
+			$id=htmlentities($_POST['id']);
 			$cedula=htmlentities($_POST['cedula']);
             $name=htmlentities($_POST['name']);
             $email=htmlentities($_POST['email']);
@@ -109,13 +103,14 @@ class BeltranControlador {
 		} else { // mostrar el formulario, cargando los datos del producto
 			
 			require_once 'modelo/dao/BeltranDAO.php';
-			$mod = new BeltranDAO();
+			$modelo = new BeltranDAO();
+            $categorias = $modelo->listar();
 			
 			//leeer parametros
-			$id = $_REQUEST['id'];
+			$id = $_GET['id'];
 			
 			//comunicando con el modelo
-			$proto = $this->modelo->buscarxId($id);
+			$prod = $this->modelo->buscarxId($id);
 			// mostrar el formulario de editar 
 			require_once 'vista/Beltran/Beltran.editar.php';
 		}
