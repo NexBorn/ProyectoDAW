@@ -1,13 +1,13 @@
 <?php require_once 'vista/templates/encabezado.php'; ?>
-
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-            <form action="index.php?c=Gonzalez&f=gonzalezbuscar" method="POST">
+        <form action="index.php?c=Gonzalez&f=gonzalezbuscar" method="POST">
+			<div class="col-sm-6 d-flex flex-column align-items-end">
                 <input type="text" name="busqueda" id="busqueda"  placeholder="buscar..."/>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i>Buscar</button>
-            </form>       
-        </div>
+			</div>
+        </form>
     </div>
 	<div class="row">
         <div class="col-sm-6 d-flex flex-column align-items-end">

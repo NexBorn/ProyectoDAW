@@ -1,6 +1,6 @@
 <!-- incluimos  Encabezado -->
 <?php require_once 'vista/templates/encabezado.php'; ?>
-
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<main class="container-md" Style="padding-top: .75rem;">
         <form id="formPremio" method="post" action="index.php?c=Gonzalez&f=gonzaleznuevo">
             <div class="align-item-center">

@@ -46,7 +46,7 @@ class GonzalezControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Gonzalez&f=index');
+               header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
            
         } else { // mostrar el formulario
 
@@ -68,7 +68,7 @@ class GonzalezControlador {
 			$apellido = htmlentities($_POST['apellido']);
 			$usuario = htmlentities($_POST['usuario']);
 			$contrasena = htmlentities($_POST['contrasena']);
-         
+			
 			//llamar al modelo
 			$exito = $this->modelo->actualizar($id_usuario, $nombre, $apellido, $usuario, $contrasena);
 			$msj = 'Información actualizada exitosamente';
@@ -82,7 +82,7 @@ class GonzalezControlador {
 			$_SESSION['color'] = $color;
 			//llamar a la vista
 			//  $this->index();
-			header('Location:index.php?c=Gonzalez&f=index');
+			header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
          
 		} else { // mostrar el formulario, cargando los datos del producto
 			
@@ -91,7 +91,6 @@ class GonzalezControlador {
 			
 			//leeer parametros
 			$id= $_REQUEST['id']; 
-			echo "id: " . $id;
 			//comunicando con el modelo
 			$proto = $this->modelo->buscar_id($id);
 			
@@ -121,5 +120,13 @@ class GonzalezControlador {
 		//  $this->index();
         header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
 	}
-
+	
+	public function gonzalezbuscar() {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$nombre= $_REQUEST['busqueda'];
+			$resultados = $this->modelo->buscar($nombre);
+			//llamo a la v
+			require_once 'vista/Gonzalez/Gonzalez.list.php';
+		}
+    }
 }

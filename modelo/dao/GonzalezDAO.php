@@ -49,8 +49,28 @@ class GonzalezDAO {
         return true;
     }
 
-    public function actualizar() {
-        
+    public function actualizar($id_usuario, $nombre, $apellido, $usuario, $contrasena) {
+        //sentencia sql
+		$sql = "UPDATE `usuario` Set 
+                     nombre=:nombre, apellido=:apellido, usuario=:usuario, contrasena=:contrasena
+            WHERE id_usuario=:id_usuario;";
+        //bind parameters
+        $sentencia = $this->con->prepare($sql);
+        $data = [
+            'id_usuario' => $id_usuario,
+            'nombre' => $nombre,
+			'apellido' => $apellido,
+            'usuario' => $usuario,
+            'contrasena' => $contrasena
+        ];
+        //execute
+        $sentencia->execute($data);
+        //retornar resultados, 
+        if ($sentencia->rowCount() <= 0) {// verificar si se inserto 
+            //rowCount permite obtner el numero de filas afectadas
+            return false;
+        }
+        return true;
     }
 
     public function eliminar($id_eliminar) {
@@ -71,14 +91,13 @@ class GonzalezDAO {
         return true;
     }
 
-    public function buscar($parametro) {
+    public function buscar($nombre) {
           // sql de la sentencia
-        $sql = "SELECT * FROM productos, categoria  where prod_idCategoria = cat_id and prod_estado=1  and 
-		(prod_nombre like :b1 or cat_nombre like :b2)";
+        $sql = "SELECT * FROM usuario where nombre like :nombre;";
         $stmt = $this->con->prepare($sql);
         // preparar la sentencia
-        $conlike = '%' . $parametro . '%';
-        $data = ['b1' => $conlike, 'b2' => $conlike];
+        $conlike = '%' . $nombre . '%';
+        $data = ['nombre' => $conlike];
         // ejecutar la sentencia
         $stmt->execute($data);
         //obtener  resultados
