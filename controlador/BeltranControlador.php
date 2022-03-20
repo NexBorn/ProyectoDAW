@@ -75,63 +75,8 @@ class BeltranControlador {
 	
 	public function editar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$id_reervacion=htmlentities($_POST['id']);
-			
-			$cedula=htmlentities($_POST['cedula']);
-            $name=htmlentities($_POST['name']);
-            $email=htmlentities($_POST['email']);
-            $guestelephone=htmlentities($_POST['guestelephone']);
-            $adults=htmlentities($_POST['adults']);
-            $children=htmlentities($_POST['children']);
-            $fechadesde=htmlentities($_POST['fechadesde']);
-            $diasreservado=htmlentities($_POST['diasreservado']);
-			
-			//llamar al modelo
-			$exito = $this->modelo->actualizar($id_reervacion, $cedula,$name,$email,$guestelephone,$adults,$children,$fechadesde,$diasreservado);
-			$msj = 'Información actualizada exitosamente';
-			$color = 'primary';
-			if (!$exito) {
-				$msj = "No se pudo realizar la actualizacion";
-				$color = "danger";
-			}
-			if(!isset($_SESSION)){ session_start();};
-			$_SESSION['mensaje'] = $msj;
-			$_SESSION['color'] = $color;
-			//llamar a la vista
-			//  $this->index();
-             header('Location:index.php?c=Beltran&f=index');
-		} else {
-			require_once 'modelo/dao/BeltranDAO.php';
-			
-			//leeer parametros
-			$id_reservacion= $_REQUEST['id'];
-			//comunicando con el modelo
-			$resultados = $this->modelo->buscarxId($id_reservacion);
-			
-			echo "resu ".$resultados;
-			// foreach ($resultados as $fila) {
-                // //$cedula=		$fila['cedula_pasaporte'];
-                // // $name=			$fila['apellidos_nombres'];
-                // // $email=			$fila['email'];
-                // // $guestelephone=	$fila['telefono'];
-                // // $adults=		$fila['adultos'];
-                // // $children=		$fila['ninos'];
-                // // $fechadesde=	$fila['reservadodesde'];
-                // // $diasreservado=	$fila['diasreservado'];
-				// echo "cedula= ".$cedula;
-			// }
-			
-			// mostrar el formulario de editar producto
-			//require_once 'vista/beltran/beltran.editar.php';
-		} /*else {
-			echo "errrrrrrrrrrrrrrrrrrrrrrrrrrrror";
-		}*/
-	}
-	
-	public function editar2(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-			$id_reervacion=htmlentities($_POST['id']);
+			$id_reervacion=htmlentities($_POST['id_reervacion']);
 			
 			$cedula=htmlentities($_POST['cedula']);
             $name=htmlentities($_POST['name']);
@@ -157,10 +102,33 @@ class BeltranControlador {
 			//  $this->index();
              header('Location:index.php?c=Beltran&f=index');
          
-		} else {
-			echo "Errrrrrrrrrrrrrrrrrrrrrrrrrrrror";
+		} else { // mostrar el formulario, cargando los datos del producto
+			
+			require_once 'modelo/dao/BeltranDAO.php';
+			$mod = new BeltranDAO();
+			
+			//leeer parametros
+			$id_reservacion= $_REQUEST['id_reservacion']; 
+			$resultado = buscarxId($id_reervacion);
+			foreach ($resultados as $fila) {
+                $cedula=		$fila['cedula_pasaporte'];
+                $name=			$fila['apellidos_nombres'];
+                $email=			$fila['email'];
+                $guestelephone=	$fila['telefono'];
+                $adults=		$fila['adultos'];
+                $children=		$fila['ninos'];
+                $fechadesde=	$fila['reservadodesde'];
+                $diasreservado=	$fila['diasreservado'];
+			}
+			
+			//comunicando con el modelo
+			$proto = $this->modelo->buscarxId($id_reservacion);
+			// mostrar el formulario de editar producto
+			require_once 'vista/Beltran/Beltran.editar.php';
 		}
 	}
+	
+	
   
 	public function eliminar(){
 		//leeer parametros

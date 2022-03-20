@@ -1,71 +1,55 @@
 <!-- incluimos  Encabezado -->
 <?php require_once 'vista/templates/encabezado.php'; ?>
 
-<main class="container-md" Style="padding-top: .75rem;">
-        <form id="formPremio" method="post" action="Gonzalez_04_CRUD_Registrar_2.php">
-            <div class="align-item-center">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Nombres: </span>
-                    <input type="text" class="form-control" placeholder="Nombres" aria-label="Nombre"
-                           name="nombre"
-                           aria-describedby="basic-addon1" id="nombre" />
+<div class="container">
+    <div class="card card-body">
+        <form action="index.php?c=productos&f=nuevo" method="POST" name="formProdNuevo" id="formProdNuevo">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="codigo">C&oacute;digo</label>
+                    <input type="text"  name="codigo" id="codigo" class="form-control" placeholder="codigo del producto" autofocus="" required/>
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Apellidos: </span>
-                    <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos"
-                           name="apellido"
-                           aria-describedby="basic-addon1" id="apellido" />
+                <div class="form-group col-sm-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="nombre producto" required>
                 </div>
-				<div class="input-group mb-3">
-                    <span class="input-group-text">Usuario: </span>
-                    <input type="text" class="form-control" placeholder="Usuario" aria-label="Nombre"
-                           name="usuario"
-                           aria-describedby="basic-addon1" id="nombre" />
+
+                <div class="form-group col-sm-6">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" class="form-control">
+                        <?php foreach ($categorias as $cat) {
+                            ?>
+                        <option value="<?php echo $cat->cat_id ?>"><?php echo $cat->cat_nombre; ?></option>
+
+                            <?php
+                        }
+                        ?>   
+
+                    </select>
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Contraseña: </span>
-                    <input type="text" class="form-control" placeholder="Contraseña" aria-label="Apellidos"
-                           name="contrasena"
-                           aria-describedby="basic-addon1" id="apellido" />
+                <div class="form-group col-sm-6">
+                    <label for="precio">Precio</label>
+                    <input type="text" name="precio" id="precio" class="form-control" placeholder="precio producto" required>
+                </div>          
+
+                <div class="form-group col-sm-12">
+                    <label for="descripcion">Descripcion</label>
+                    <textarea id="descripcion"  name="descripcion" class="form-control" rows="2"></textarea>
                 </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3"
-                            name="enviar">
-                        Agregar
-                    </button>
+                <div class="form-group col-sm-12">
+                    <input type="checkbox" id="estado" name="estado" >
+                    <label for="estado">Activo</label>
                 </div>
-            </div>
+                <div class="form-group mx-auto">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="index.php?c=producto&a=index" class="btn btn-primary">Cancelar</a>
+                </div>
+            </div>  
         </form>
-    </main>
-	
-    <script type="text/javascript" src="assets/bootstrap/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/CGE_form_Funciones.js"></script>
-    <script type="text/javascript" src="assets/js/CGE_Variables_Globales.js"></script>
 
-    <script>
-        var form = document.querySelector("#formPremio");
-        form.addEventListener('submit', validar);
 
-        function validar(event) {
-            limpiarMensajes();
-            var resultado = true;
-            var nombre = document.getElementById("nombre");
-            var apellido = document.getElementById("apellido");
-
-            resultado = evaluatxt(nombre, 0, 50, letra, "El nombre", resultado);
-            resultado = evaluatxt(apellido, 0, 50, letra, "El apellido", resultado);
-
-            if (!resultado) {
-                event.preventDefault();  // detener el evento  //stop form from submitting
-                alert("Datos Incorrectos");
-            }/* else {
-                alert("Datos correctos");
-            }*/
-            return resultado;
-        }
-
-    </script>
+    </div>
+</div>
 
 <!-- incluimos  pie de pagina -->
 <?php require_once 'vista/templates/piedepagina.php'; ?>

@@ -63,7 +63,7 @@
                     <td><?php echo $fila['diasreservado'];?></td>
 
                      <td>
-                        <a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id=<?php echo $fila['id_reservacion']; ?>">EDITAR</i></a>
+                        <a class="btn btn-primary" href="index.php?c=Beltran&f=editar&id_reservacion'=<?php echo  $fila['id_reservacion']; ?>">EDITAR</i></a>
                         <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Beltran&f=eliminar&id=<?php echo  $fila['id_reservacion']; ?>">ELIMINAR</i></a>
                     </td>
 				</tr>

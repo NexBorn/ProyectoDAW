@@ -13,7 +13,7 @@ class BeltranDAO {
     
     public function listar() {
         // sql de la sentencia
-        $sql = "select * from reservacion";
+        $sql = "select * from reservacion where id_reservacion = id_reservacion";
         //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
@@ -54,19 +54,16 @@ class BeltranDAO {
     }
 	
 	public function buscarxId($id_reservacion) { // buscar un producto por su id
-         // sql de la sentencia
-		 echo "id ".$id_reservacion;
-        $sql = "select * from reservacion WHERE id_reservacion = :id_reservacion";
-        
-		//preparacion de la sentencia
+        $sql = "select * from reservacion where id_reservacion = :id_reservacion";
+        // preparar la sentencia
         $stmt = $this->con->prepare($sql);
-		$data = ['id_reservacion' => $id_reservacion];
-        //ejecucion de la sentencia
+        $data = ['id_reservacion' => $id_reservacion];
+        // ejecutar la sentencia
         $stmt->execute($data);
-        //recuperacion de resultados
-        $resultados = $stmt->fetch(PDO::FETCH_ASSOC);
-        // retorna datos para el controlador
-        //return $resultados;
+        // recuperar los datos (en caso de select)
+        $proto = $stmt->fetch(PDO::FETCH_ASSOC);// fetch retorna el primer registro
+        // retornar resultados
+        return $proto;
     }
 	
     public function buscarxCe($cedula) { // buscar un producto por su id

@@ -16,19 +16,33 @@ class GonzalezControlador {
         require_once 'vista/Gonzalez/Gonzalez.Presentacion.php';
     }
 
+    public function buscar() {
+        // leer parametros
+        $busqueda = $_POST['busqueda'];
+
+        //comunica con el modelo
+        $resultados = $this->modelo->buscar($busqueda);
+
+        // comunicarnos a la vista
+        require_once 'vista/Gonzalez/Gonzalez.list.php';
+    }
+
    public function nuevo() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// guardar
         // verificaciones
                //if(!isset($_POST['codigo'])){ header('');}
             // leer parametros
-			$id_usuario = htmlentities($_POST['id_usuario']);
-			$nombre = htmlentities($_POST['nombre']);
-			$apellido = htmlentities($_POST['apellido']);
-			$usuario = htmlentities($_POST['usuario']);
-			$contrasena = htmlentities($_POST['contrasena']);
+            $id_protocolo_covid = htmlentities($_POST['id_protocolo_covid']);
+            $name = htmlentities($_POST['name']);
+            $sur_name = htmlentities($_POST['sur_name']);
+            $email = htmlentities($_POST['email']);
+            $vacuna = htmlentities($_POST['vacuna']);
+            $mask = htmlentities($_POST['mask']);
+            $range_washs = htmlentities($_POST['range_washs']);
+            $terms = htmlentities($_POST['terms']);
             
             //llamar al modelo
-            $exito = $this->modelo->insertar($id_usuario, $nombre, $apellido, $usuario, $contrasena);
+            $exito = $this->modelo->insertar($id_protocolo_covid, $name, $sur_name,$email,$vacuna, $mask, $range_washs,$terms);
             $msj = 'Guardado exitosamente';
             $color = 'primary';
             if (!$exito) {
@@ -54,44 +68,48 @@ class GonzalezControlador {
 
     public function editar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// actualizar
-			// verificaciones
-				 
-			// leer parametros
-            $id_usuario = htmlentities($_POST['id_usuario']);
-			$nombre = htmlentities($_POST['nombre']);
-			$apellido = htmlentities($_POST['apellido']);
-			$usuario = htmlentities($_POST['usuario']);
-			$contrasena = htmlentities($_POST['contrasena']);
+      // verificaciones
+             
+          // leer parametros
+            $id_protocolo_covid = htmlentities($_POST['id_protocolo_covid']);
+            $name = htmlentities($_POST['name']);
+            $sur_name = htmlentities($_POST['sur_name']);
+            $email = htmlentities($_POST['email']);
+            $vacuna = htmlentities($_POST['vacuna']);
+            $mask = htmlentities($_POST['mask']);
+            $range_washs = htmlentities($_POST['range_washs']);
+            $terms = htmlentities($_POST['terms']);
+          //$usu = 'usuario'; //$_SESSION['usuario'];
          
-			//llamar al modelo
-			$exito = $this->modelo->actualizar($id_usuario, $nombre, $apellido, $usuario, $contrasena);
-			$msj = 'Información actualizada exitosamente';
-			$color = 'primary';
-			if (!$exito) {
-				$msj = "No se pudo realizar la actualizacion";
-				$color = "danger";
-			}
-			if(!isset($_SESSION)){ session_start();};
-			$_SESSION['mensaje'] = $msj;
-			$_SESSION['color'] = $color;
-			//llamar a la vista
-			//  $this->index();
-			header('Location:index.php?c=Gonzalez&f=index');
+          //llamar al modelo
+          $exito = $this->modelo->actualizar($id_protocolo_covid, $name, $sur_name,$email,$vacuna, $mask, $range_washs,$terms);
+          $msj = 'Información actualizada exitosamente';
+          $color = 'primary';
+          if (!$exito) {
+              $msj = "No se pudo realizar la actualizacion";
+              $color = "danger";
+          }
+           if(!isset($_SESSION)){ session_start();};
+          $_SESSION['mensaje'] = $msj;
+          $_SESSION['color'] = $color;
+      //llamar a la vista
+          //  $this->index();
+             header('Location:index.php?c=Gonzalez&f=index');
          
-		} else { // mostrar el formulario, cargando los datos del producto
-			
-			require_once 'modelo/dao/GonzalezDAO.php';
-			$mod = new GonzalezDAO();
-			
-			//leeer parametros
-			$id_protocolo= $_REQUEST['id_protocolo_covid']; 
-			
-			//comunicando con el modelo
-			$proto = $this->modelo->buscarxId($id_protocolo);
-			// mostrar el formulario de editar producto
-			require_once 'vista/Gonzalez/Gonzalez.editar.php';
-		}
-	}
+      } else { // mostrar el formulario, cargando los datos del producto
+
+          require_once 'modelo/dao/GonzalezDAO.php';
+          $mod = new GonzalezDAO();
+       
+          //leeer parametros
+          $id_protocolo= $_REQUEST['id_protocolo_covid']; 
+          
+          //comunicando con el modelo
+         $proto = $this->modelo->buscarxId($id_protocolo);
+          // mostrar el formulario de editar producto
+          require_once 'vista/Gonzalez/Gonzalez.editar.php';
+      }
+  }
   
   public function eliminar(){
       
