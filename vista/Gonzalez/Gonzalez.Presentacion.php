@@ -1,7 +1,32 @@
-<?php
-	$tittle = "Hola que hace";
-	require_once 'vista/templates/encabezado.php';
-?>
+
+<!DOCTYPE php>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="Viajes, Explora,  html" />
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<title>Blog | Turismo Quito</title>
+	<style>
+		.row>[class^="col-"] {
+			padding-top: .75rem;
+			padding-bottom: .75rem;
+			background-color: rgba(39, 41, 43, 0.03);
+			border: 1px solid rgba(39, 41, 43, 0.1);
+		}
+	</style>
+</head>
+
+<body>
+	<header class="big-header-explora">
+                <?php
+				include('comun/NavPrincipal.php');
+				?>
+	</header>
 	<main class="container-md">
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
@@ -211,7 +236,7 @@
 			</div>
 		</div>
 		<div class="col-auto">
-			<form method="get" action="Gonzalez_02_Formulario.html">
+			<form method="get" action="index.php?c=Gonzalez&f=nuevo">
 				<button type="submit" class="btn btn-primary mb-3">Ir a formulario de premios</button>
 			</form>
 		</div>
@@ -226,6 +251,9 @@
             </form>
         </div>
 	</main>
+	<script type="text/javascript" src="assets/bootstrap/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
 <?php
 	require_once 'vista/templates/piedepagina.php';
 ?>
