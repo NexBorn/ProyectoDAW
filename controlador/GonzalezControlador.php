@@ -90,34 +90,36 @@ class GonzalezControlador {
 			$mod = new GonzalezDAO();
 			
 			//leeer parametros
-			$id_protocolo= $_REQUEST['id_protocolo_covid']; 
-			
+			$id= $_REQUEST['id']; 
+			echo "id: " . $id;
 			//comunicando con el modelo
-			$proto = $this->modelo->buscarxId($id_protocolo);
+			$proto = $this->modelo->buscar_id($id);
+			
+			echo "lariable";
+			var_dump($proto[0]["id_usuario"]);
 			// mostrar el formulario de editar producto
 			require_once 'vista/Gonzalez/Gonzalez.editar.php';
 		}
 	}
   
-  public function gonzalezeliminar(){
-      
-       //leeer parametros
-          $id= $_REQUEST['id'];
-        //  $usu= 'usuario';//$_SESSION['usuario'];
-       //comunicando con el modelo
-       $exito = $this->modelo->eliminar($id);
-      $msj = 'Producto eliminado exitosamente';
-          $color = 'primary';
-          if (!$exito) {
-              $msj = "No se pudo eliminar la actualizacion";
-              $color = "danger";
-          }
-           if(!isset($_SESSION)){ session_start();};
-          $_SESSION['mensaje'] = $msj;
-          $_SESSION['color'] = $color;
-      //llamar a la vista
-          //  $this->index();
-             header('Location:index.php?c=Gonzalez&f=index');
-  }
+	public function gonzalezeliminar(){
+		//leeer parametros
+		$id= $_REQUEST['id'];
+		//  $usu= 'usuario';//$_SESSION['usuario'];
+		//comunicando con el modelo
+		$exito = $this->modelo->eliminar($id);
+		$msj = 'Item eliminado exitosamente';
+		$color = 'primary';
+		if (!$exito) {
+			$msj = "No se pudo eliminar la actualizacion";
+			$color = "danger";
+		}
+		if(!isset($_SESSION)){ session_start();};
+		$_SESSION['mensaje'] = $msj;
+		$_SESSION['color'] = $color;
+		//llamar a la vista
+		//  $this->index();
+        header('Location:index.php?c=Gonzalez&f=gonzalezlistar');
+	}
 
 }

@@ -37,8 +37,8 @@
                     <td><?php echo $fila['usuario']; ?></td>
 					<td> <?php echo $fila['contrasena']; ?></td>
                     <td>
-						<a class="btn btn-primary" href="index.php?c=Gonzalez&f=editar&id=<?php echo  $fila['id_usuario']; ?>"><i class="fas fa-marker"></i></a>
-                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Gonzalez&f=editar&id=<?php echo  $fila['id_usuario']; ?>"><i class="fas fa-trash-alt"></i></a>
+						<a class="btn btn-primary" href="index.php?c=Gonzalez&f=gonzalezeditar&id=<?php echo  $fila['id_usuario']; ?>"><i class="fas fa-marker"></i></a>
+                        <a class="btn btn-danger" onclick="if(!confirm('Esta seguro de eliminar el producto?'))return false;"  href="index.php?c=Gonzalez&f=gonzalezeliminar&id=<?php echo  $fila['id_usuario']; ?>"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 <?php  }?>

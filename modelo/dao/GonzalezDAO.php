@@ -53,8 +53,22 @@ class GonzalezDAO {
         
     }
 
-    public function eliminar() {
-        
+    public function eliminar($id_eliminar) {
+		$sql= "DELETE FROM usuario WHERE id_usuario = :id_eliminar";
+		
+        //bind parameters
+        $sentencia = $this->con->prepare($sql);
+        $data = [
+            'id_eliminar' => $id_eliminar
+        ];
+        //execute
+        $sentencia->execute($data);
+        //retornar resultados, 
+        if ($sentencia->rowCount() <= 0) {// verificar si se inserto 
+            //rowCount permite obtner el numero de filas afectadas
+            return false;
+        }
+        return true;
     }
 
     public function buscar($parametro) {
@@ -72,5 +86,18 @@ class GonzalezDAO {
         //retornar resultados
         return $resultados;
     }
-
+	
+	public function buscar_id($id) {
+          // sql de la sentencia
+        $sql = "SELECT * FROM usuario WHERE id_usuario=:id";
+        $stmt = $this->con->prepare($sql);
+        // preparar la sentencia
+        $data = ['id' => $id];
+        // ejecutar la sentencia
+        $stmt->execute($data);
+        //obtener  resultados
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //retornar resultados
+        return $resultados;
+    }
 }

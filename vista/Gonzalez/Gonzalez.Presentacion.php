@@ -2,6 +2,7 @@
 	$tittle = "Hola que hace";
 	require_once 'vista/templates/encabezado.php';
 ?>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<style>
 		.row>[class^="col-"] {
 			padding-top: .75rem;
@@ -219,17 +220,21 @@
 			</div>
 		</div>
 		<div class="col-auto">
-			<a id="link" href="index.php?c=Gonzalez&f=gonzalezlistar">listar</a>
+			<form method="post" action="index.php?c=Gonzalez&f=gonzalezlistar">
+                <button type="submit" class="btn btn-primary mb-3">Listar</button>
+            </form>
+			<form method="post" action="index.php?c=Gonzalez&f=gonzaleznuevo">
+                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+            </form>
 		</div>
-        <div class="col-auto">
-            <a id="link" href="index.php?c=Gonzalez&f=gonzaleznuevo">agregar</a>
-        </div>
         <div class="col-auto">
             <form method="get" action="index.php?c=Gonzalez&f=CGE_Form_Login">
                 <button type="submit" class="btn btn-primary mb-3">Ir a Session</button>
             </form>
         </div>
 	</main>
+	<script type="text/javascript" src="assets/bootstrap/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 <?php
 	require_once 'vista/templates/piedepagina.php';
 ?>
