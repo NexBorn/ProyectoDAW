@@ -15,13 +15,19 @@ class GonzalezControlador {
         //llamo a la vista
         require_once 'vista/Gonzalez/Gonzalez.Presentacion.php';
     }
+	
+	public function gonzalezlistar() {
+		$resultados = $this->modelo->listar();
+        //llamo a la v
+        require_once 'vista/Gonzalez/Gonzalez.list.php';
+    }
 
-   public function nuevo() {
+	public function gonzaleznuevo() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// guardar
         // verificaciones
                //if(!isset($_POST['codigo'])){ header('');}
             // leer parametros
-			$id_usuario = htmlentities($_POST['id_usuario']);
+			$id_usuario = 0;
 			$nombre = htmlentities($_POST['nombre']);
 			$apellido = htmlentities($_POST['apellido']);
 			$usuario = htmlentities($_POST['usuario']);
@@ -52,7 +58,7 @@ class GonzalezControlador {
         }
     }
 
-    public function editar(){
+    public function gonzalezeditar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// actualizar
 			// verificaciones
 				 
@@ -93,7 +99,7 @@ class GonzalezControlador {
 		}
 	}
   
-  public function eliminar(){
+  public function gonzalezeliminar(){
       
        //leeer parametros
           $id= $_REQUEST['id'];

@@ -2,7 +2,7 @@
 <?php require_once 'vista/templates/encabezado.php'; ?>
 
 	<main class="container-md" Style="padding-top: .75rem;">
-        <form id="formPremio" method="post" action="index.php">
+        <form id="formPremio" method="post" action="index.php?c=Gonzalez&f=gonzaleznuevo">
             <div class="align-item-center">
                 <div class="input-group mb-3">
                     <span class="input-group-text">Nombres: </span>

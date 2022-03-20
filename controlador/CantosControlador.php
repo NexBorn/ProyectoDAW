@@ -16,7 +16,15 @@ class CantosControlador {
         require_once 'vista/Cantos/Cantos.Presentacion.php';
     }
 
-    public function buscar() {
+    public function cantoslistar() {
+        //comunica con el modelo
+        $resultados = $this->modelo->listar();
+
+        // comunicarnos a la vista
+        require_once 'vista/Cantos/Cantos.list.php';
+    }
+
+    public function cantosbuscar() {
         // leer parametros
         $busqueda = $_POST['busqueda'];
 
@@ -27,7 +35,7 @@ class CantosControlador {
         require_once 'vista/Cantos/Cantos.list.php';
     }
 
-   public function nuevo() {
+	public function cantosnuevo() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// guardar
         // verificaciones
                //if(!isset($_POST['codigo'])){ header('');}
@@ -54,7 +62,7 @@ class CantosControlador {
             $_SESSION['color'] = $color;
         //llamar a la vista
               //  $this->index();
-               header('Location:index.php?c=Cantos&f=index');
+               header('Location:index.php?c=Cantos&f=cantoslistar');
            
         } else { // mostrar el formulario
 
@@ -66,7 +74,7 @@ class CantosControlador {
         }
     }
 
-    public function editar(){
+    public function cantoseditar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {// actualizar
       // verificaciones
              
@@ -111,7 +119,7 @@ class CantosControlador {
       }
   }
   
-  public function eliminar(){
+  public function camtoseliminar(){
       
        //leeer parametros
           $id= $_REQUEST['id'];

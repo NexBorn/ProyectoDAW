@@ -3,7 +3,7 @@
 
 <div class="container-form">
                 <h1 id="id">Encuesta protocolo covid</h1>
-                <form class="form" id="form" method="post" action="index.php?c=Cantos&f=nuevo">
+                <form class="form" id="form" method="post" action="index.php?c=Cantos&f=cantosnuevo">
                     <!-- Id -->
                     <div id="form_id">
                         <label for="name" class="form_label"></label>
@@ -86,6 +86,8 @@
                         <p class="form_msj-exito" id="form_msj-exito">Formulario enviado exitosamente!</p>  
                     </div>                    
                  </form>
+				 
+				 
              </div>
 <!-- incluimos  pie de pagina -->
 <?php require_once 'vista/templates/piedepagina.php'; ?>
